@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('footer');
   this.route('header');
   this.route('dashboard');
+  this.route('DashBoard');
 });
 
 export default Router;

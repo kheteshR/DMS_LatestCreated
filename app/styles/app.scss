@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import 'ember-paper';
 
 .bottom-padding-10{
 	padding-bottom: 10px;
@@ -62,16 +63,334 @@
 	background-color: #ffffff;
 	box-shadow: 0 8px 9px 0 rgba(0, 0, 0, 0.14);
   }
-  .Mobile-Number-or-Mai {
+  .Use-OTP-Forgot-Passw {
 	width: 246px;
-	height: 123px;
-	opacity: 0.27;
 	font-family: ProximaNova;
 	font-size: 16px;
 	font-weight: normal;
 	font-style: normal;
 	font-stretch: normal;
 	line-height: 4.13;
+	letter-spacing: normal;
+	color: #000000;
+  }
+  .Sign-in {
+	width: 104px;
+	height: 30px;
+	font-family: ProximaNova;
+	font-size: 24px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.25;
+	letter-spacing: 0.5px;
+	text-align: center;
+	color: #ffffff;
+  }
+  .Rectangle-5 {
+	margin-left:35px;
+	width: 331px;
+	height: 59px;
+	border-radius: 2px;
+	background-color: #4990e2;
+  }
+  
+  
+  .New {
+	width: 297px;
+	height: 59px;
+	margin-left:35px;
+	
+	font-family: ProximaNova;
+	font-size: 16px;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 3.25;
+	letter-spacing: normal;
+	color: #4190e4;
+  }
+  .Rectangle-3 {
+	width: 399px;
+	height: 11px;
+	margin-top:8%;
+	border-radius: 8px;
+	background-color: #4990e2;
+  }
+  .About-DMS-helps-to-E {
+	width: 861px;
+	height: 53px;
+	margin-top:95px;
+	margin-left:280px;
+	font-family: ProximaNova;
+	font-size: 38px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.18;
+	letter-spacing: normal;
+	color: #000000;
+	}
+
+  .block{
+		margin-left:38%;
+	margin-top: 100px;
+	margin-bottom: 61px;
+
+  }
+  .Rectangle-5-Copy {
+	  // margin-left:570px;
+	width: 292px;
+	height: 59px;
+	border-radius: 8px;
+	background-color: #4990e2;
+  }
+  .START {
+	width: 205px;
+	height: 24px;
+	font-family: ProximaNova;
+	font-size: 18px;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.33;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+  }
+  .Try-Your-Education-D {
+	width: 100%;
+	height: 53px;
+	padding-top: 83px;
+
+	font-family: ProximaNova;
+	font-size: 34px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.09;
+	letter-spacing: normal;
+	text-align: center;
+	color: #000000;
+  }
+  
+  .Try-Your-Education-D .text-style-1 {
+	font-weight: bold;
+  }
+  .Lorem {
+	width: 100%;
+	height: 123px;
+	// margin-left:290px;
+	text-align:center;
+	font-family: ProximaNova;
+	font-size: 18px;
+	color: #282828;
+  }
+  .Rectangle-6 {
+	width: 100%;
+	height: 300px;
+	margin-top:83px;
+	background-color: #f6f7fc;
+	}
+	.logo {
+		width: 49px;
+		height: 46px;
+	}
+	.Aligin-logo{
+   margin-left:27px;
+   margin-top:7px;
+	}
+	.Side-nav {
+		width: 200px;
+		height: 840px;
+		background-color: #242536;
+	}
+
+	.username {
+		width: 152px;
+		height: 14px;
+		font-family: ProximaNova;
+		font-size: 14px;
+		font-weight: 600;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1;
+		margin-right:25px;
+		margin-top:25px;
+		margin-bottom:25px;
+		margin-left:50px;
+		letter-spacing: normal;
+		color: #ffffff;
+	}
+	.About-Us {
+		width: 69px;
+		height: 123px;
+		font-family: ProximaNova;
+		font-size: 13px;
+		font-weight: normal;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1.15;
+		letter-spacing: normal;
+		color: #000000;
+	}
+	.All-Documents {
+		width: 92px;
+		height: 14px;
+		margin-left:20px;
+		padding-top:18px;
+		font-family: ProximaNova;
+		font-size: 14px;
+		font-weight: 600;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: 1;
+		letter-spacing: normal;
+		color: #ffffff;
+	}
+	.Navbar {
+		width: 100%;
+		height: 60px;
+		background-color: #121f3f;
+		box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.23);
+	}
+	.bar-1 {
+		width: 200px;
+		height: 51px;
+		background-color: #4990e2;
+	}
+	.video-align{
+		margin-top: 115px;
+    margin-left: 380px;
+    margin-bottom: -11%;
+	}
+	.Pending {
+		width: 51px;
+		height: 14px;
+		font-family: ProximaNova;
+		font-size: 14px;
+		margin-top:81px;
+		margin-left:20px;
+		// margin-bottom:96px;
+		line-height: 1;
+		letter-spacing: normal;
+		color: #ffffff;
+	}
+	.Documents {
+		width: 112px;
+		height: 14px;
+		margin-top:24px;
+		margin-left:19px;
+		font-family: ProximaNova;
+		font-size: 12px;
+		font-weight: 600;
+	
+		color: #ffffff;
+	}
+	.Rectangle-2-Copy-7 {
+		width: 162px;
+		height: 51px;
+		margin-top:26px;
+		margin-left:19px;
+		background-color: #4990e2;
+	}
+	.main {
+		margin-left: 160px; /* Same as the width of the sidenav */
+		padding: 0px 10px;
+	}
+	.Rectangle-402 {
+		margin-left:250px;
+		width: 157px;
+		height: 40px;
+		border-radius: 4px;
+		// background-color: #ffffff;
+		// border: solid 1px #dbdbdb;
+	}
+	.Rectangle-2-Copy-3 {
+		width: 844px;
+		height: 154px;
+		background-color: #ffffff;
+	}
+	.Rectangle-403 {
+		width: 300px;
+		height: 40px;
+		margin-left:20px;
+		border-radius: 4px;
+		background-color: #ffffff;
+		border: solid 1px #dbdbdb;
+	}
+	.line-2 {
+		width: 200px;
+		height: 1px;
+		margin-top:43px;
+		background-color: #000000;
+	}
+	.line {
+		width: 200px;
+		height: 1px;
+		margin-top:191px;
+		// opacity: 0.11;
+		background-color: #ffffff;
+	}
+	.Pending-1{
+		width: 51px;
+		height: 14px;
+		font-family: ProximaNova;
+		font-size: 14px;
+		margin-top:21px;
+		margin-left:20px;
+		// margin-bottom:61px;
+		line-height: 1;
+		letter-spacing: normal;
+		color: #ffffff;
+	}
+	.Pending-2{
+		width: 51px;
+		height: 14px;
+		font-family: ProximaNova;
+		font-size: 14px;
+		margin-top:21px;
+		margin-left:20px;
+		margin-bottom:26px;
+		line-height: 1;
+		letter-spacing: normal;
+		color: #ffffff;
+	}
+	.About-Us .text-style-1 {
+		font-size: 12px;
+		font-weight: bold;
+		line-height: 1.17;
+	}
+  .Content {
+	width: 100%;
+	margin-top:300px;
+	height: 93px;
+	font-family: ProximaNova;
+	font-size: 18px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #000000;
+  }
+  .About-DMS-helps-to-E .text-style-1 {
+	font-weight: bold;
+  }
+  .New .text-style-1 {
+	font-weight: normal;
+	color: #000000;
+  }
+  .Mobile-Number-or-Mai {
+	width: 246px;
+	// opacity: 0.27;
+	font-family: ProximaNova;
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 3.13;
 	padding-left:54px;
 	letter-spacing: normal;
 	color: #000000;
