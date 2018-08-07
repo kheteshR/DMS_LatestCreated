@@ -1,0 +1,75 @@
+{{partial 'navbar'}}
+<br>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style=" background-image: url(assets/images/school.gif); max-height:100%">
+   <div class="">
+      <h1 class="display-3"><b>Institute Dashboard</b></h1>
+      <h2 class="w3-tangerine"><b>Document management system</b></h2>
+   </div>
+</div>
+<div class="container-fluid">
+   <!-- Example row of columns -->
+   <h1><b class="class-color">Document Availability</b></h1>
+   <p>Total number of document available in repository. </p>
+   <div class="row">
+      <div class="col-md-4">
+         <h2><b class="class-color" {{action "HSCRepo"}}>HSC Certificate</b></h2>
+         <p>Total number of HSC Certificate available in repository. </p>
+         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+         <h2><b class="class-color" {{action "HSCRepo"}}>SSC Certificate</b></h2>
+         <p>Total number of  SSC Certificate available in repository</p>
+         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+         <h2><b class="class-color" >Admission form</b></h2>
+         <p>Total number of  Leaving Certificate available in repository</p>
+         {{#link-to 'ApplicationFormRepo'}}
+         <p><a class="btn btn-secondary" href="ApplicationFormRepo" role="button">View details &raquo;</a></p>
+      {{/link-to}}
+      </div>
+   </div>
+   <hr>
+</div>
+{{#if ShowTable}}
+<div class="table-responsive-lg">
+  <table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col"><h3><b>Serial No.</b></h3></th>
+       <th scope="col"><h3><b>Seat No.</b></h3></th>
+      <th scope="col"><h3><b>First</b></h3></th>
+      <th scope="col"><h3><b>Last</b></h3></th>
+      <th scope="col"><h3><b>Document Type</b></h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+       <td>132</td>
+      <td>khetesh</td>
+     
+      <td>Rotangan</td>
+      <td>HSC Marksheet</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+       <td>134</td>
+      <td>Rishabh</td>
+      <td>Sharma</td>
+      <td>HSC Marksheet</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+       <td>143</td>
+      <td colspan="1">rahul</td>
+      <td>Tiwari</td>
+      <td>HSC Marksheet</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+{{/if}}
+{{partial 'footer'}}

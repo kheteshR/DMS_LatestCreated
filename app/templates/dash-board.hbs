@@ -1,57 +1,150 @@
 {{partial 'navbar'}}
- 
-<style>
-
-
-.sidebar {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 16px;
-}
-
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-</style>
-
-
 <div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <button class="btn bar-1" >User Dashboard</button>
+   <br>
+   <br>
+   {{#link-to 'AppForm'}}
+   <button class="btn" style="width:200px;">Apply for Admission card</button>
+   {{/link-to}}
+   
+   <br>
+   <br>
+   {{#link-to 'uploaddocument'}}
+   <button class="btn" style="width:200px;">Upload Documents</button>
+   {{/link-to}}
+   <br>
+   <hr>
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" {{action "GoToRepository"}}>Documents Repository</button>
+   <br>
+   <hr>
 </div>
-
 <div class="main">
-  <h2>Sidebar with Icons</h2>
-  <p>This side navigation is of full height (100%) and always shown.</p>
-  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+   <br>
+   <div class="row">
+      <div class="col-lg-6">
+       <div style="	width: 157px;	height: 40px;	border-radius: 4px;" >Hello  Khetesh</div>
+      </div>
+      <div class="col-lg-6">
+         {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
+      </div>
+   </div>
+   <hr>
+  
+   <div class="row" style="">
+      <div class="col-md-3 colour-3" style="background:;text-align:center;">
+         <h3>
+            <b>
+            Inbox
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="10"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         10
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+      <div class="col-md-3" style="background:;text-align:center;">
+         <h3>
+            <b>
+            Uploaded Doc
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="9"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         9
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+      <div class="col-md-3">
+         <h3>
+            <b style="text-align:center;">
+            Request
+            <br>
+            </b>
+         </h3>
+        <h4 style="color:green; text-align:center;margin:20%;"> No request yet</h4>
+      </div>
+      <div class="col-md-3">
+          {{#link-to 'pulldocuments'}}
+         <h3>
+            <b>
+            Pull Documents
+            </b>
+         </h3>
+         <span class="fa fa-cloud-download fa-fa-style"></span>
+      {{/link-to}}
+      </div>
+   </div>
+   <br>
+   {{!-- -------------------->><<-------------------- --}}
+   {{#if ShowBlock}}
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         SSC Documents
+      </div>
+      <hr>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Seat Number</th>
+      <th scope="col">Content-Hash</th>
+      <th scope="col">Date & Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
 </div>
-
-
-       
+   <br>
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         HSC Documents
+      </div>
+      <hr>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Seat Number</th>
+      <th scope="col">Content-Hash</th>
+      <th scope="col">Date & Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+   {{/if}}
+   <br>
+</div>

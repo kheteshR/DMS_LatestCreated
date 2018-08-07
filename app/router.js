@@ -12,6 +12,17 @@ Router.map(function() {
   this.route('header');
   this.route('dashboard');
   this.route('DashBoard');
+  this.route('divisionalboard');
+  this.route('pulldocuments');
+  this.route('statusupload');
+  this.route('uploaddocument');
+  this.route('AppForm');
+  this.route('employerdashboard');
+  this.route('applicationhsc');
+  this.route('EmployerDocumentCategory');
+  this.route('InstituteDashboard');
+  this.route('signup');
+  this.route('ApplicationFormRepo');
 });
 
 export default Router;

@@ -1,0 +1,77 @@
+{{partial 'navbar'}}
+<br>
+<div class="row">
+   <h2>
+      <center><b>Maharastra State Board of Secondary and Higher Secondary Education</b></center>
+   </h2>
+</div>
+<div class="row">
+   <h2 style="margin-left:10%;">Fetch Documents</h2>
+</div>
+<div class="row">
+   <div class="col-lg-1"></div>
+   <div class="col-lg-10">
+      <div class="panel panel-default">
+         <button class="btn" style="width:100%;background-color:beige;"{{action "pull1"}}>
+         <div class="panel-body" ><b>Class X MarkSheet</b></div>
+         </button>
+           {{#if IsSuccess}}
+         <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong class="font">Success!</strong> <b>Your Marksheet pulled successfully .</b>
+        <br>
+        <b class="font">Content Reference:
+          <br><strong style="color:blue;font-family: 'Oswald', sans-serif !important;font-size:32px">{{filehash}}</strong></b>
+    </div>
+    {{/if}}
+         {{#if ShowForm}}
+         <br>
+         <h2>
+            <b class="align-input">Submit Details below</b>
+         </h2>
+         <div class="form-group align-input" >
+            <label class="">Name:</label>
+            {{input type="text" class="form-control " value=name  placeholder="name same as marksheet"}}
+         </div>
+         <div class="form-group align-input">
+            <label class="">Seat number:</label>
+            {{input type="number" class="form-control" value=SeatNo  placeholder="Enter seat number" }}
+         </div>
+         <button type="submit" class="btn align-input" style="background-color:#ef7c00;width:20%" {{action "submit1"}}>Submit</button>
+         <br>
+         <br>
+         {{/if}}
+      </div>
+      <div class="col-lg-1"></div>
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-lg-1"></div>
+   <div class="col-lg-10">
+      <div class="panel panel-default" >
+         <button class="btn" style="width:100%;background-color:beige;" {{action "pull2"}}>
+         <div class="panel-body"><b>Class XII MarkSheet</b></div>
+         </button>
+         {{#if ShowForm1}}
+         <br>
+         <h2>
+            <b class="align-input">Submit Details below</b>
+         </h2>
+         <div class="form-group align-input">
+            <label class="">Name:</label>
+            {{input type="text" class="form-control" value=name style="" placeholder="name same as marksheet"}}
+         </div>
+         <div class="form-group align-input">
+            <label class="">Seat number:</label>
+            {{input type="number" class="form-control" value=SeatNo style="" placeholder="Enter seat number" }}
+         </div>
+         <button type="submit" class="btn align-input" style="background-color:#ef7c00;width:20%" {{action "submit"}}>Submit</button>
+         <br>
+         <br>
+         {{/if}}
+  
+      </div>
+      <div class="col-lg-1"></div>
+   </div>
+</div>

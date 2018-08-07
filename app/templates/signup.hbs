@@ -1,0 +1,37 @@
+{{partial 'signup'}}
+<br>
+<style>
+   body  {
+
+   background-color: #cccccc;
+   }
+   /* Full-width input fields */
+
+</style>
+ {{!-- style="font-size:48px" --}}
+ <form style="width:30%;  margin: 0 auto;">
+     <h1 class="w3-xxxlarge"><b style="color:black">Sign Up to Rapid Locker</b></h1>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Username</label>
+    {{input type="text" class="form-control form-control-lg" id="formGroupExampleInput" placeholder="Enter Username"   value=walletName }}
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Password</label>
+    {{input type="text"class="form-control form-control-lg" id="formGroupExampleInput2" type="password" placeholder="Repeat Password" value=pswrepeat}}
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Repeat Password</label>
+  {{input type="password" class="form-control form-control-lg" placeholder="Repeat Password" value=pswrepeat}}
+   </div>
+   <button type="submit" class="registerbtn" style="background-color:#dc3545" {{action "submit"}}>Register</button>
+<br>
+<p class="">Already have an account? <a href="login" style="color:whitesmoke">Sign in</a>.</p>
+</form>
+
+
+
+  
+  
+  
+
+

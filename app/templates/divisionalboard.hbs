@@ -1,0 +1,86 @@
+{{partial 'navbar'}}
+<div class="sidebar">
+
+   <div class="Documents">
+     All Reports
+   </div>
+
+     {{#link-to 'applicationhsc'}}
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >All Admission Report</button>
+      {{/link-to}}
+   <br>
+   <hr>
+</div>
+<div class="main">
+   <br>
+   <div class="row">
+        <h1><strong>Divisional Board Of Maharashtra</strong></h1>
+   </div>
+   <hr>
+
+   <div class="row" style="background-color:">
+      <div class="col-md-6 colour-3" style="background:;text-align:center;">
+         <h3>
+            <b>
+            Total SSC Report
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="10"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         10
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+      <div class="col-md-6 colour-3" style="background:;text-align:center;">
+         <h3>
+            <b>
+                  Total HSC Report
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="10"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         10
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+     
+     
+   </div>
+
+   <div class="Block">
+      <div class="SSLC-Documents">
+        Application Report for SSC
+      </div>
+      <hr>
+      <div class="row">
+         <label style="padding-left:4%;">Total Document : 10</label>
+      </div>
+   </div>
+   <br>
+   <div class="Block">
+      <div class="SSLC-Documents">
+        Application Report for HSC
+      </div>
+      <hr>
+      <div class="row">
+         <label style="padding-left:4%;">Total Document : 10</label>
+      </div>
+   </div>
+   <br>
+</div>

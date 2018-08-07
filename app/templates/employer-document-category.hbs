@@ -1,0 +1,47 @@
+{{partial 'navbar'}}
+<br>
+<div class="jumbotron">
+   <h2 style="text-align:center"><strong>List of Documents</strong></h2>
+   <br>
+   <br>
+   <div class="card" style="background-color: #f16e00;" {{action 'show'}}>
+   <div class="card-block">
+      <p class="" style="color: white; text-align:center" >Class X Marksheet</p>
+   </div>
+   {{#if IsSHowForm}}
+   <div class="container">
+      <br>
+      <h3><b>Send Request For Document</b></h3>
+      <br>
+      <b>Please Select Document Type :</b> {{select-component  listitem=ListDocument selecteditemlist=propertyType}}
+      <br>
+      <b>Receiver Address :</b>  {{input type="text" class="form-control"  value=Address placeholder="Please enter Address of person"}}
+      <br>
+      <button type="submit" class="btn btn-primary mb-2" {{action "SendRequest"}}>Confirm Request</button>
+      <br>
+      <br>
+   </div>
+   <br>
+   {{/if}}
+    {{#if isShowingModal}}
+      {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+      <h3>Request Send Sucessfully.</h3>
+      <div class="modal-header">
+         <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+      </div>
+      {{/modal-dialog}}
+      {{/if}}
+</div>
+<br>
+<div class="card" style="background-color: #f16e00;">
+   <div class="card-block">
+      <p style="color: white;text-align:center">Class XII Marksheet</p>
+   </div>
+</div>
+<br>
+<div class="card" style="background-color: #f16e00;">
+   <div class="card-block">
+      <p style="color: white;text-align:center">Leaving Certificate</p>
+   </div>
+</div>
+</div>

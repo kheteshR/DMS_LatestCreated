@@ -1,0 +1,86 @@
+{{partial 'navbar'}}
+<div class="sidebar">
+  <br>
+  <div class="row">
+    <div class="col-md-4" style="	padding-left:1cm;">
+   <img src="assets/icons8.png" class="icon">
+   </div>
+   <div class="col-md-8" style="color:white" {{action "toggle"}}>
+    Document Details</div>
+    </div>
+    <br>
+    <div class="row">
+    <div class="col-md-4" style="	padding-left:1cm;">
+   <img src="assets/icon1.png" class="icon">
+   </div>
+    <div class="col-md-8" style="color:white">
+   <div  style="background-color:">Documents host</div>
+   </div>
+</div>
+   {{!-- <div class="Submit-Documents" style="background-color:">Documents host</div> --}}
+   <br>
+   <hr>
+</div>
+<div class="main">
+   <br>
+   {{#if ChangePage}}
+   <div class="row">
+      <h1><strong>Upload Documents</strong></h1>
+         <hr style="background-color:gray">
+   </div>
+<div class="row" style="background-color:light-gray">
+
+<h3>Please select your document before upload</h3>
+<div  style="color:blue"><b>Select category from here</b></div>
+
+<div class="" >{{select-component listitem=ListDocument selecteditemlist=propertyType}}</div>
+<br> 
+<label class="formlab" style="color:black;" for="usr">Name of Document Owner</label>
+{{input type="text"  class="form-control" value=name placeholder="Enter Name"}}
+<br>
+
+   {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+   <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">&nbsp;Click Here To Upload Documents</a>
+   {{/pl-uploader}}
+</div>
+{{else}}
+<div class="row">
+ <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Document Type</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Content Hash</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>SSC Marksheet</td>
+        <td>Uploaded</td>
+        <td>03/08/2018</td>
+        <td>03:45:00</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+ 
+</div>
+
+{{/if}}
+</div>
+
+<br>
+{{#if isShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+<h3>file Uploaded Sucessfully... !</h3>
+<div class="modal-header">
+   <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+</div>
+{{/modal-dialog}}
+{{/if}}

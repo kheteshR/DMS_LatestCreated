@@ -25,13 +25,13 @@
             </div>
             <div class="Mobile-Number-or-Mai">
                <br>
-               {{paper-input class="" label="Username:" value=name onChange=(action (mut name))}}
+               {{paper-input type="text" label="Username:" value=name onChange=(action (mut name))}}
                <br>
-               {{paper-input class="" label="Password" value=password onChange=(action (mut name))}}
+               {{paper-input type="password" label="Password" value=password onChange=(action (mut password))}}
             </div>
-            <button  class="Rectangle-5"><label class="Sign-in">Basic</label></button>
+            <button  class="Rectangle-5"{{action "Login"}}><label class="Sign-in">Submit</label></button>
             <div class="New">
-               <label class="text-style-1">New to DMS?</label> Create Account
+               <label class="text-style-1">New to DMS?</label> {{#link-to 'signup'}} Create Account{{/link-to}}
             </div>
             <div class="Rectangle-3 "></div>
          </div>

@@ -1,0 +1,29 @@
+{{partial 'navbar'}}
+<div class="container">
+<div class="div2">
+      
+  <br>
+  <h1>Please select your document before upload</h1>
+  <br>
+      <div class="group">  
+        <div class="row">
+       <div class="col-md-3" style="color:rgb(23, 23, 26)"><strong>Select category from here</strong></div>
+        <div class="col-md-9">{{select-component  listitem=ListDocument selecteditemlist=propertyType}}
+      </div>
+      </div>
+      <br>
+      <br>
+      <br>
+       <div class="row">
+         <div class="col-md-3"  style="color:rgb(23, 23, 26)">
+          <strong>Upload your document</strong> &nbsp;<i class="fa fa-hand-o-right" style="font-size:24px"></i> 
+           </div>
+        <div style="col-md-9">
+        {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+          <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Documents</a>
+         {{/pl-uploader}}
+         </div>
+         </div>
+    </div>
+</div>
+</div>

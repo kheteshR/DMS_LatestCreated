@@ -1,100 +1,116 @@
-<h2 style="font-family:courier;"><b>Welcome to Document Management</b></h2>
+{{partial 'navbar'}}
+<div class="sidebar">
+   <div class="bar-1">
+      <div class="All-Documents" >All Documents</div>
+   </div>
+   <div class="Pending" style="">Pending</div>
+   <div class="Pending-1" style="">Inbox</div>
+   <div class="Pending-2" style="">Request</div>
+   {{#link-to 'statusupload'}} <div class="Pending-3" style="">Host Documents</div>{{/link-to}}
    <br>
-   <h2><label>Your Dashboard</label></h2>
-   <hr style="border: 1px solid grey;">
-   <div class="container-fluid">
-      <div class="row row-flex">
-         <div class="col-md-3 col-sm-6 col-xs-12 colour-3" >
-            <div  class="a">
-               <h3>
-                  <b>
-                  Issued Documents
-                  </b>
-               </h3>
-            </div>
-            <div class="a lable-align">
-               {{#progress-circle
-               size="200"
-               strokeWidth="10"
-               percentage=series
-               as |elementId radius|
-               }}
-               {{#progress-circle/text
-               font-size="2rem"
-               font-family="inherit"
-               }}
-               {{series}}
-               {{/progress-circle/text}}
-               {{/progress-circle}}
-            </div>
-         </div>
-         <div class="col-md-3 col-sm-6 col-xs-12" style="background:whitesmoke">
-            <div class="a">
-               <h3>
-                  <b>
-                  Uploaded Documents
-                  </b>
-               </h3>
-            </div>
-            <div class="a lable-align">
-               {{#progress-circle
-               size="200"
-               strokeWidth="10"
-               percentage="0"
-               as |elementId radius|
-               }}
-               {{#progress-circle/text
-               font-size="2rem"
-               font-family="inherit"
-               }}
-              0
-               {{/progress-circle/text}}
-               {{/progress-circle}}
-            </div>
-         </div>
-         <div class="col-md-3 col-sm-6 col-xs-12" style="background:whitesmoke">
-            <div  class="a" >
-               <h3>
-                  <b>
-                  {{#link-to 'request'}}
-                  Request
-                  <br>
-                  {{/link-to}}
-                  </b>
-               </h3>
-            </div>
-            {{#if (eq message "no request yet generated")}}
-            <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
-            {{else}}
-            <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
-            <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
-            {{/if}}
-         </div>
-         <div class="col-md-3 col-sm-3 col-xs-3" style="background:whitesmoke">
-            <div class="a">
-               {{#link-to 'ListOfService'}}
-               <h3>
-                  <b>
-                  Pull Documents
-                  </b>
-               </h3>
-            
-            <span class="fa fa-cloud-download fa-fa-style " ></span>
-            {{/link-to}}
-         </div>
+   <hr>
+   <div class="Documents">
+      Documents
+   </div>
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >View All Documents</button>
+   <br>
+   <hr>
+</div>
+<div class="main">
+   <br>
+   <div class="row">
+      <div class="col-lg-6">
+         <button class="btn" style="	width: 157px;	height: 40px;	border-radius: 4px;" type="button" data-toggle="dropdown"><span class="caret"></span>All Documents</button>
+      </div>
+      <div class="col-lg-6">
+         {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
+      </div>
+   </div>
+   <hr>
+   {{!-- ------------------------------>>>>>>>><<<<<<<<<----------- --}}
+   <div class="row" style="background-color:">
+      <div class="col-md-4 colour-3" style="background:;text-align:center;">
+         <h3>
+            <b>
+            Inbox
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="20"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         210
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+      <div class="col-md-4" style="background:;text-align:center;">
+         <h3>
+            <b>
+            Request for update 
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="9"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         9
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+      {{!-- <div class="col-md-4" style="background:">
+         <h3>
+            <b>
+            Hosted Doc
+            </b>
+         </h3>
+          {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="9"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         11
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+        
+         
+      </div> --}}
+   </div>
+   {{!-- -------------------->><<-------------------- --}}
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         SSC Documents
+      </div>
+      <hr>
+      <div class="row">
+         <label style="padding-left:4%;">Total Document : 100</label>
       </div>
    </div>
    <br>
-</div>
-<!-- Second Container -->
-<div class="container-fluid bg-2 text-center" >
-   <h3 class="margin">About</h3>
-   <p style="font-family:'Courier New', Courier, monospace; text-align:justify">Blockchain is a digital mechanism that enables people who don't know each other to engage in trusted transactions with full confidence in the integrity of the assets being exchanged.
-      It does this by embedding authentication into the document itself and using a closed loop tracking system to protect against tampering or modification. If you've ever used a synchronized file-sharing system like DropBox or Microsoft OneDrive, you know basically how the process works. 
-   </p>
-   <a href="#" class="btn btn-default btn-lg">
-   <span class="glyphicon glyphicon-search"></span> Search
-   </a>
-   <br>
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         HSC Documents
+      </div>
+      <hr>
+      <div class="row">
+         <label style="padding-left:4%;">Total Document : 110</label>
+      </div>
+   </div>
    <br>
 </div>
