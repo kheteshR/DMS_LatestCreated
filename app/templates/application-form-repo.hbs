@@ -1,19 +1,28 @@
 {{partial 'navbar'}}
-<br>
- <table class="table">
-    <thead>
-      <tr>
-        <th>User Id</th>
-        <th>Application Type</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>123</td>
-        <td>SSC Admission Form</td>
-        <td>Not verified</td>
-      </tr>
-    
-    </tbody>
-  </table>
+<div class="jumbotron">
+    <h2>All Application form </h2>
+   <br>
+   {{#each AllInfo as |data|}}
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Application Id:</th>
+            <th>Application Type:</th>
+            <th>User Id:</th>
+            <th>Status:</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td {{action 'pass' data._id data.TypeOform  data.status data.candiName data.RollNo
+            data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
+            data.MobNo data.AdharNo data.userId}} style="color:green">
+            {{data._id}}</td>
+            <td>{{data.TypeOform}}</td>
+            <td>{{data.userId}}</td>
+            <td style="color:darkgreen">{{data.status}}</td>
+         </tr>
+      </tbody>
+   </table>
+   {{/each}}
+</div>

@@ -23,6 +23,8 @@ Router.map(function() {
   this.route('InstituteDashboard');
   this.route('signup');
   this.route('ApplicationFormRepo');
+  this.route('FullForm');
+  this.route('HallTicketRepo');
 });
 
 export default Router;

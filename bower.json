@@ -1,0 +1,6 @@
+{
+  "name": "dms-ui",
+  "dependencies": {
+    "plupload": "v2.1.8"
+  }
+}

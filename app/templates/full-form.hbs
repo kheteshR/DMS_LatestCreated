@@ -1,0 +1,50 @@
+{{partial 'navbar'}}
+<div class="jumbotron">
+    <h1><strong>Verification Process</strong></h1>
+<div class="panel panel-default">
+    <div class="panel-body">
+   Application Id:<p style="color:green">{{id}}</p>
+    <hr>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+           &nbsp; &nbsp;<b>Full Name:&nbsp; &nbsp;{{candiName}}</b><br>
+           &nbsp; &nbsp;<b>Father Name:&nbsp; &nbsp;{{fatherName}}</b><br>
+           &nbsp; &nbsp;<b>Mother Name:&nbsp; &nbsp;{{motherName}}</b><br>
+           &nbsp; &nbsp;<b>School Name:&nbsp; &nbsp;{{schoolName}}</b><br>
+           &nbsp; &nbsp;<b>School Code:&nbsp; &nbsp;{{schoolCode}}</b><br>
+           &nbsp; &nbsp;<b>Adhaar Number:&nbsp; &nbsp;{{AdharNo}}</b><br>  
+        </div>
+        <div class="col-lg-6">
+           &nbsp; &nbsp;<b>User Id:&nbsp; &nbsp;{{userId}}</b><br>
+           &nbsp; &nbsp;<b>Residential Address:&nbsp; &nbsp;{{ResidentialAddr}}</b><br>
+           &nbsp; &nbsp;<b>Mobile Number:&nbsp; &nbsp;{{MobNo}}</b><br>
+           &nbsp; &nbsp;<b>Roll Number :&nbsp; &nbsp;{{RollNo}}</b><br>
+           &nbsp; &nbsp;<b>Date Of Birth:&nbsp; &nbsp;{{dob}}</b><br>
+           &nbsp; &nbsp;<b>Application For:&nbsp; &nbsp; {{TypeOform}}</b><br>
+           &nbsp; &nbsp;<b>Application For:&nbsp; &nbsp;<b style="color:darkgreen">{{status}}</b></b><br>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+             <div class="col-lg-6">
+
+             </div>
+              <div class="col-lg-6">
+                   &nbsp; &nbsp;<button type="button" class="btn btn-success"{{action "Done" userId TypeOform}}>Process Application Form</button>
+              
+              
+              </div>
+            
+            </div>
+            <br>
+            {{#if showAlert}}
+             <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Success!</strong> {{message}}.
+</div>
+{{/if}}
+            <br>
+  </div>
+
+    </div>

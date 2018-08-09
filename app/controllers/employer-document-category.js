@@ -38,7 +38,6 @@ export default Ember.Controller.extend({
                
                 }  
             })
-
         },
         Goto:function(){
             this.set("isShowingModal",false);
