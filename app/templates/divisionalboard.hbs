@@ -2,11 +2,11 @@
 <div class="sidebar">
 
    <div class="Documents">
-     All Reports
+     All Admission card
    </div>
 
      {{#link-to 'applicationhsc'}}
-   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >All Admission Report</button>
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >All Admission Card Status</button>
       {{/link-to}}
    <br>
    <hr>
@@ -17,69 +17,69 @@
         <h1><strong>Divisional Board Of Maharashtra</strong></h1>
    </div>
    <hr>
-
+{{!-- {{#each AllInfo as |data|}} --}}
    <div class="row" style="background-color:">
       <div class="col-md-6 colour-3" style="background:;text-align:center;">
          <h3>
             <b>
-            Total SSC Report
+            Total SSC Admit Card
             </b>
          </h3>
+         {{!-- {{#if (eq data.TypeOform "SSC")}} --}}
          {{#progress-circle
          size="200"
          strokeWidth="10"
-         percentage="10"
+         percentage=SSC_Length
          as |elementId radius|
          }}
          {{#progress-circle/text
          font-size="2rem"
          font-family="inherit"
          }}
-         10
+         {{SSC_Length}}
          {{/progress-circle/text}}
          {{/progress-circle}}
+         {{!-- {{/if}} --}}
       </div>
       <div class="col-md-6 colour-3" style="background:;text-align:center;">
          <h3>
             <b>
-                  Total HSC Report
+                  Total HSC Admit Card
             </b>
          </h3>
          {{#progress-circle
          size="200"
          strokeWidth="10"
-         percentage="10"
+         percentage=HSC_Length
          as |elementId radius|
          }}
          {{#progress-circle/text
          font-size="2rem"
          font-family="inherit"
          }}
-         10
+         {{HSC_Length}}
          {{/progress-circle/text}}
          {{/progress-circle}}
-      </div>
-     
-     
+      </div>  
    </div>
-
+{{!-- {{/each}} --}}
    <div class="Block">
       <div class="SSLC-Documents">
-        Application Report for SSC
+        Admission card for SSC
       </div>
       <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : 10</label>
+         <label style="padding-left:4%;">Total Document : {{SSC_Length}}</label>
       </div>
    </div>
    <br>
    <div class="Block">
       <div class="SSLC-Documents">
-        Application Report for HSC
+        Admission card for HSC
       </div>
       <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : 10</label>
+         <label style="padding-left:4%;">Total Document : {{HSC_Length}}</label>
       </div>
    </div>
    <br>

@@ -1,26 +1,28 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
-<br>
-<h1>All Application Form</h1>
-  <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Report Content hash</th>
-        <th>Application Id</th>
-        <th>Type Of Form</th>
-      
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-   
-      </tr>
-     
-      
-    </tbody>
-  </table>
-  </div>
+    <h2>All Application form </h2>
+   <br>
+   {{#each AllInfo as |data|}}
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Application Id:</th>
+            <th>Application Type:</th>
+            <th>User Id:</th>
+            <th>Status:</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td {{action 'pass' data._id data.TypeOform  data.status data.candiName data.RollNo
+            data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
+            data.MobNo data.AdharNo data.userId}} style="color:green">
+            {{data._id}}</td>
+            <td>{{data.TypeOform}}</td>
+            <td>{{data.userId}}</td>
+            <td style="color:darkgreen">{{data.status}}</td>
+         </tr>
+      </tbody>
+   </table>
+   {{/each}}
+</div>

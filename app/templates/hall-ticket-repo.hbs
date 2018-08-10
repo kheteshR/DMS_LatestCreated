@@ -18,7 +18,7 @@
           </div>
           <div class="row">
           <div class="col-md-4"><b>Mother Name:</b><b style="color:darkgreen">{{data.motherName}}</b></div>
-          <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{data.dob}}</b></div>
+          <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{moment-format data.dob  'DD/MM/YYYY'}} </b></div>
           <div class="col-md-4"><b>Mobile Number:</b><b style="color:darkgreen">{{data.MobNo}}</b></div>
           </div>
           <div class="row">
@@ -29,4 +29,7 @@
         {{!-- &nbsp;&nbsp;<b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b> --}}
           {{/each}}
 
+{{#js-pdf steps as |pdf|}}
+  <button {{action pdf.save}}>Download PDF</button>
+{{/js-pdf}}
     </div>
