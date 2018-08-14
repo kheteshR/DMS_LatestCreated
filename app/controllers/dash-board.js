@@ -4,7 +4,8 @@ export default Controller.extend({
     ShowBlock:false,
     actions:{
     GoToRepository:function(){
-        this.set('ShowBlock',true)
+        // this.set('ShowBlock',true)
+        this.transitionToRoute('UserRepository')
        }
     }
 });

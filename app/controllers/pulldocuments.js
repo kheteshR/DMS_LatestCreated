@@ -15,7 +15,7 @@ export default Controller.extend({
         },
         submit1:function(){
           const userId=this.get('userId')
-          console.log("userId=====>>>",userId)
+          console.log("userId=====>>>pulldocuments",userId)
           this.set('userId',userId)
             var hash;
             var name=this.get('name')

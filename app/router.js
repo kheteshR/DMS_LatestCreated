@@ -27,6 +27,7 @@ Router.map(function() {
   this.route('HallTicketRepo');
   this.route('userhallticket');
   this.route('samplepdf');
+  this.route('UserRepository');
 });
 
 export default Router;

@@ -22,8 +22,18 @@ export default Route.extend({
         console.log("Result===== dashboard=====>>",response.Result.SSCresult);
         _this.controllerFor('DashBoard').set('data',response.Result.SSCresult);
         _this.controllerFor('DashBoard').set('DataLength',response.Length);
-       
-
+        }
+    })
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/GetIssuedDocument',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("please check GetIssuedDocument=====>>",response.TotalObject.length)
+        var series=response.TotalObject.length;
+        _this.controllerFor('DashBoard').set('series',series);
         }
     })
     }

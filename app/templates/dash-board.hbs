@@ -40,14 +40,14 @@
          {{#progress-circle
          size="200"
          strokeWidth="10"
-         percentage="10"
+         percentage=series
          as |elementId radius|
          }}
          {{#progress-circle/text
          font-size="2rem"
          font-family="inherit"
          }}
-         10
+         {{series}}
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>
