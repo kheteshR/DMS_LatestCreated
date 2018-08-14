@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     showAlert:false,
+    isCancelled:true,
     actions:{
         Done:function(userId,TypeOform){
             console.log("your data====>>",userId,TypeOform)

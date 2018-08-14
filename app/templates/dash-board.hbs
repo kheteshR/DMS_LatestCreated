@@ -22,7 +22,7 @@
    <br>
    <div class="row">
       <div class="col-lg-6">
-       <div style="	width: 157px;	height: 40px;	border-radius: 4px;" >Hello  Khetesh</div>
+       <div style="	width: 157px;	height: 40px;	border-radius: 4px;" ><b style="color:blue">Hello&nbsp;{{walletname}}</b></div>
       </div>
       <div class="col-lg-6">
          {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
@@ -92,11 +92,37 @@
       </div>
    </div>
    <br>
+   <div class="row">
+      <div class="col-md-3" style="text-align:center;">
+          <h3>
+            <b>
+              {{#link-to 'userhallticket'}}
+            Hall Ticket 
+            {{/link-to}}
+            </b>
+         </h3>
+     {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage=DataLength
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         {{DataLength}}
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+</div>
+     </div>
+   <br>
    {{!-- -------------------->><<-------------------- --}}
    {{#if ShowBlock}}
    <div class="Block">
       <div class="SSLC-Documents ">
          SSC Documents
+         
       </div>
       <hr>
     <table class="table">

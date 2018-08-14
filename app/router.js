@@ -25,6 +25,8 @@ Router.map(function() {
   this.route('ApplicationFormRepo');
   this.route('FullForm');
   this.route('HallTicketRepo');
+  this.route('userhallticket');
+  this.route('samplepdf');
 });
 
 export default Router;

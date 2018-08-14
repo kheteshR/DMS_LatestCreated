@@ -69,28 +69,26 @@
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>
-      {{!-- <div class="col-md-4" style="background:">
+      <div class="col-md-4" style="background:;text-align:center;">
          <h3>
             <b>
-            Hosted Doc
+            Hall Tickets
             </b>
          </h3>
           {{#progress-circle
          size="200"
          strokeWidth="10"
-         percentage="9"
+         percentage=ArrayLength
          as |elementId radius|
          }}
          {{#progress-circle/text
          font-size="2rem"
          font-family="inherit"
          }}
-         11
+         {{ArrayLength}}
          {{/progress-circle/text}}
          {{/progress-circle}}
-        
-         
-      </div> --}}
+      </div>
    </div>
    {{!-- -------------------->><<-------------------- --}}
    <div class="Block">

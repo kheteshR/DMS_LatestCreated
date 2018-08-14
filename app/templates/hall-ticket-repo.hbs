@@ -29,7 +29,7 @@
         {{!-- &nbsp;&nbsp;<b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b> --}}
           {{/each}}
 
-{{#js-pdf steps as |pdf|}}
-  <button {{action pdf.save}}>Download PDF</button>
-{{/js-pdf}}
+
+  <button {{action "save"}}>Download PDF</button>
+
     </div>

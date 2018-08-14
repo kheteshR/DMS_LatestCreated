@@ -39,8 +39,7 @@ export default Controller.extend({
                     console.log(JSON.stringify(response));
                     console.log("response=====>>", response);
                     var walletname=response.usertype.walletName
-                    console.log("walletname===>>" + walletname)
-                    mycontroller.set('walletname',walletname)
+                   
                     var usertype = response.usertype.usertype;
                     console.log("usertype==========>>" + usertype)
                     var userId = response.userid;
@@ -49,11 +48,13 @@ export default Controller.extend({
 
                     if (usertype === 'user') {
                         console.log("login done")
-                        swal(
-                            'Good job!',
-                            'Login Successful',
-                            'success'
-                        )
+                        // swal(
+                        //     'Good job!',
+                        //     'Login Successful',
+                        //     'success'
+                        // )
+                        console.log("walletname===>>" + walletname)
+                        mycontroller.set('walletname',walletname)
                         mycontroller.transitionToRoute('DashBoard')
                     } else if (walletName == "Admin@info.com") {
                         console.log("admin loged in")

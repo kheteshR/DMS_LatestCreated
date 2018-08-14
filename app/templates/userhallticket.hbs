@@ -1,0 +1,55 @@
+{{partial 'navbar'}}
+<div class="jumbotron">
+        {{#each AllInfo as |data|}}
+       <div class="panel panel-primary">
+      <div class="panel-heading">
+          <h4><b>Hall Ticket</b></h4>
+      </div>
+      <div class="panel-body">
+           {{#if (eq data.status "Hall ticket auto generation sucessfully done")}}
+          <div class="row">
+         <div class="col-md-4"><b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b></div>
+          <div class="col-md-6"><b>Status:</b><b style="color:green">Processed</b></div>
+          </div>
+          <hr>
+          <div class="row">
+          <div class="col-md-4"><b>Full Name:</b><b style="color:darkgreen">{{data.candiName}}</b></div>
+          <div class="col-md-4"><b>Father Name:</b><b style="color:darkgreen">{{data.fatherName}}</b></div>
+          <div class="col-md-4"><b>Center alloted at:</b><b style="color:darkgreen">{{data.HallCenter}}</b></div>
+          </div>
+          <div class="row">
+          <div class="col-md-4"><b>Mother Name:</b><b style="color:darkgreen">{{data.motherName}}</b></div>
+          <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{moment-format data.dob  'DD/MM/YYYY'}} </b></div>
+          <div class="col-md-4"><b>Mobile Number:</b><b style="color:darkgreen">{{data.MobNo}}</b></div>
+          </div>
+          <div class="row">
+                   <div class="col-md-6"><b>Admission card:</b><b style="color:darkgreen">{{data.TypeOform}}</b></div>
+              </div>
+              {{else}}
+              <div class="row">
+
+         <div class="col-md-6"><b>Seat Number:</b><b style="color:darkgreen">No seat number generated yet</b></div>
+          <div class="col-md-6"><b>Status:</b><b style="color:green">Processing</b></div>
+          </div>
+          <hr>
+          <div class="row">
+          <div class="col-md-4"><b>Full Name:</b><b style="color:darkgreen">{{data.candiName}}</b></div>
+          <div class="col-md-4"><b>Father Name:</b><b style="color:darkgreen">{{data.fatherName}}</b></div>
+          <div class="col-md-4"><b>Center alloted at:</b><b style="color:darkgreen">not yet alloted</b></div>
+          </div>
+          <div class="row">
+          <div class="col-md-4"><b>Mother Name:</b><b style="color:darkgreen">{{data.motherName}}</b></div>
+          <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{moment-format data.dob  'DD/MM/YYYY'}} </b></div>
+          <div class="col-md-4"><b>Mobile Number:</b><b style="color:darkgreen">{{data.MobNo}}</b></div>
+          </div>
+          <div class="row">
+                   <div class="col-md-6"><b>Admission card:</b><b style="color:darkgreen">{{data.TypeOform}}</b></div>
+              </div>
+                 {{/if}}
+          </div>
+          
+    </div>  
+    <br>
+    <button>Please Download Your Hall Ticket</button>
+{{/each}}
+</div>
