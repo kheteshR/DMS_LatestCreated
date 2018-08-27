@@ -28,6 +28,10 @@ Router.map(function() {
   this.route('userhallticket');
   this.route('samplepdf');
   this.route('UserRepository');
+  this.route('Marksheet');
+  this.route('hallticket');
+  this.route('reapplyfordocuments');
+  this.route('History');
 });
 
 export default Router;

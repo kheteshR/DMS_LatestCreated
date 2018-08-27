@@ -1,9 +1,10 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
     <h1><strong>Verification Process</strong></h1>
+ 
 <div class="panel panel-default">
     <div class="panel-body">
-   Application Id:<p style="color:green">{{id}}</p>
+   <b>Application Id:</b><p style="color:green">{{Doc_id}}</p>
     <hr>
     </div>
     <div class="row">
@@ -28,15 +29,20 @@
         <br>
         <div class="row">
              <div class="col-lg-6">
-
+  &nbsp; &nbsp;<button type="button" class="btn"{{action "ReValidation" userId TypeOform}}>Re-Apply with correction</button>
              </div>
               <div class="col-lg-6">
                   
                   {{#if (eq status "Hall ticket auto generation sucessfully done")}}
                    &nbsp; &nbsp;<button type="button" disabled={{isCancelled}} class="btn btn-success"{{action "Done" userId TypeOform}}>Process Application Form</button>
-                   Already Done
-              {{else}}
-              &nbsp; &nbsp;<button type="button" class="btn btn-success"{{action "Done" userId TypeOform}}>Process Application Form</button>
+                   {{!-- <b style="color:tomato">Already Done</b> --}}
+                   <br>
+                   <div class="alert alert-info">
+                   <strong>Info!</strong>This Application Id Already Processed .
+                    </div>
+ 
+                 {{else}}
+                   &nbsp; &nbsp;<button type="button" class=" btn btn-success"{{action "Done" userId TypeOform}}>Process Application Form</button>
 
               {{/if}}
               </div>
@@ -48,9 +54,10 @@
 {{else}}
  <div class="alert alert-success alert-dismissible">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <strong>Success!</strong>Hall ticket auto generated.<br>
-  Please check your hall ticket repository.
-  {{!-- {{message}} --}}
+  <strong>Success!</strong>Successfully verified by Institute.<br>
+  <strong>Waiting for Divisional board approval</strong>
+  <br>
+  <strong style="color:tomato">{{EmailMessage}}</strong>
 </div>
 {{/if}}
 {{/if}}

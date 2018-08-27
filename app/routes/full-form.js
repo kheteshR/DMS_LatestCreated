@@ -4,8 +4,13 @@ export default Route.extend({
     model(){
         var _id=this.controllerFor('ApplicationFormRepo').get('id');
         this.controllerFor('FullForm').set('id',_id);
+        var data=this.controllerFor('ApplicationFormRepo').get('data');
+        console.log("pass data in full form",data)
+        this.controllerFor('FullForm').set('data',data);
         var candiName=this.controllerFor('ApplicationFormRepo').get('candiName');
         this.controllerFor('FullForm').set('candiName',candiName);
+        var Doc_id=this.controllerFor('ApplicationFormRepo').get('Doc_id');
+        this.controllerFor('FullForm').set('Doc_id',Doc_id);
         var RollNo=this.controllerFor('ApplicationFormRepo').get('RollNo');
         this.controllerFor('FullForm').set('RollNo',RollNo);
         var dob=this.controllerFor('ApplicationFormRepo').get('dob');

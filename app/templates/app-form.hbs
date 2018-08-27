@@ -1,56 +1,102 @@
 {{partial 'navbar'}}
 <br>
-<div class="container">
-    <div class="row">
-          <h2>Admission form</h2>
-        </div>
-  <div class="row">
-    <div class="col-lg-6">
-    <div class="form-group">
-      <label>Full Name:</label>
-      {{input type="text" class="form-control" value=candidateName placeholder="Enter Full Name" }}
-    </div>
-    <div class="form-group">
-      <label>Father name:</label>
-      {{input type="text" class="form-control" value=FatherName  placeholder="Enter Father name"}}
-    </div>
-     <div class="form-group">
-      <label>Mother name:</label>
-      {{input type="text" class="form-control" value=MotherName  placeholder="Enter Mother name"}}
-    </div>
-     <div class="form-group">
-      <label>School Code:</label>
-      {{input type="number" class="form-control" value=schoolCode placeholder="Enter School Code" }}
-    </div>
-     <div class="form-group">
-      <label>Residential Address:</label>
-      {{input type="text" class="form-control" value=ResidentialAddr placeholder="Residential Address" }}
-    </div>
-    </div>
-    <div class="col-lg-6">
-     <div class="form-group">
-      <label>Roll number:</label>
-      {{input type="text" class="form-control" value=RollNo  placeholder="Enter roll number" }}
-    </div>
-         <div class="form-group">
-      <label>Mobile Number:</label>
-      {{input type="text" value=MobNo class="form-control"  placeholder="Mobile Number" }}
-    </div>
-         <div class="form-group">
-      <label>Adhaar Number:</label>
-      {{input type="text" value=AdharNo class="form-control"  placeholder="Enter Adhaar Number" }}
-    </div>
-    
-      <div class="form-group">
-      <label>Date of Birth:</label>
-      {{bootstrap-datepicker  class="form-control" value=expiresAt placeholder="select date"}}
-      
-    </div>
-      <label>Select your examination:</label>
-    {{select-component  listitem=ListDocument selecteditemlist=propertyType }}
- </div>
- </div>
-    <br>
-    <button type="submit" class="btn btn-lg btn-primary btn-block" {{action "SubmitForm"}}>Submit</button>
-<br>
+{{!-- 
+<div class="layout-column flex-xs flex-gt-xs-50">
+--}}
+<div class="w3-panel w3-card">
+   <div class="row">
+      <div class="col-lg-4">
+         <img class="" height="50" width="50"  src="assets/MH.png">
+      </div>
+      <div class="col-lg-4">
+         <h2><strong>Fill Up Admission form Here</strong></h2>
+      </div>
+   </div>
+   <h5><strong>Note:</strong>All * fields are mendatory</h5>
+   <div class="layout-column flex-xs flex-gt-xs-90" style="margin-left:10%;">
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Name" required=true value=candidateName onChange=(action (mut candidateName)) errorMessages=(hash
+         required="Name is required."
+         ) icon="face"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Father Name" required=true value=FatherName onChange=(action (mut FatherName)) errorMessages=(hash
+         required="Father name is required."
+         ) icon="person"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Mother name" required=true value=MotherName onChange=(action (mut MotherName)) errorMessages=(hash
+         required="Mother name is required."
+         ) icon="person"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter School Code" type="number" required=true value=schoolCode onChange=(action (mut schoolCode)) errorMessages=(hash
+         required="School code is required."
+         ) icon="input"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         <label class="flex-20">Select your school Name:</label>&nbsp;
+         {{select-component class="flex-30" listitem=ListDocument1 selecteditemlist=School }}
+         &nbsp;
+         {{#if School}}
+         <strong>You have selected the  <code>{{School}}</code></strong>
+         {{/if}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Residential Address" required=true value=ResidentialAddr onChange=(action (mut ResidentialAddr)) errorMessages=(hash
+         required="Permanent Address is required."
+         ) icon="place"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter roll number"  value=RollNo onChange=(action (mut RollNo)) errorMessages=(hash) icon="power_input"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input
+         class="flex-90"
+         label="Enter Mobile Number"
+         value=MobNo
+         onChange=(action (mut MobNo))
+         required=true
+         maxlength=10
+         errorMessages=(hash
+         maxlength="Mobile no. is not  correct."
+         )
+         icon="dialpad"
+         }}
+         {{!-- {{paper-input class="flex-90" label="Enter Mobile Number" max="10" value=MobNo onChange=(action (mut MobNo)) errorMessages=(hash) 
+         errorMessages=(hash required="Mobile no. is not  correct.") icon="dialpad"}} --}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Adhaar Number" 
+         value=AdharNo
+         onChange=(action (mut AdharNo))
+         required=true
+         maxlength=12
+         errorMessages=(hash
+         maxlength="Adhaaar number should be less then 12 digits."
+         )
+         icon="perm_identity"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="select date"  type="date" value=expiresAt onChange=(action (mut expiresAt)) errorMessages=(hash) 
+         icon="date_range"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         <label class="flex-20">Select your examination:</label>&nbsp;
+         {{select-component  class="flex-30" listitem=ListDocument selecteditemlist=propertyType }}
+         &nbsp;
+         {{#if propertyType}}
+         <strong>You have selected the  <code>{{propertyType}}</code></strong>
+         {{/if}}
+      </div>
+      <br>
+      <div  class="layout layout-sm-column">
+         <div class="col-sm-4"></div>
+         {{#paper-button raised=true primary=true class="flex-20" onClick=(action "targetButton")}}Submit application form{{/paper-button}}
+         <div class="col-sm-4"></div>
+         {{!-- {{#paper-button raised=true primary=true class="flex-90" onClick=(action "targetButton")}}Submit application form{{/paper-button}} --}}
+      </div>
+      <br>
+      <br>
+   </div>
 </div>

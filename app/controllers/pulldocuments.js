@@ -4,6 +4,7 @@ export default Controller.extend({
     ShowForm:false,
     ShowForm1:false,
     IsSuccess:false,
+    ListDocument:["MARCH","JULY-OCTOBER"],
     actions:{
         pull1:function(){
             this.set('ShowForm',true)

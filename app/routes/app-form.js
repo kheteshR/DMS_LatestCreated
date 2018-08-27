@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import uniqid from "npm:uniqid";
+import sha256 from "npm:sha256";
 
 export default Route.extend({
     model(){

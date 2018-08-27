@@ -1,7 +1,23 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
-    <h2>All Application form </h2>
+   <h2>All Application form </h2>
    <br>
+      {{#if TxShowAlert}}
+      <div class="alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>Application id:{{_id}}</strong>
+         <strong>Success!</strong>your transaction id is&nbsp;<b style="color:blue">{{TxHash}}</b>.<br>
+         <strong>Form submitted back to institute successfully.</strong>
+      </div>
+      {{/if}}
+        {{#if showAlert}}
+      <div class="alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>Success!</strong>Hall ticket auto generated.<br>
+         <strong>Please check your hall ticket repository.</strong>
+      </div>
+      {{/if}}
+      
    {{#each AllInfo as |data|}}
    <table class="table">
       <thead>
@@ -17,14 +33,77 @@
             <td {{action 'pass' data.uniqid data.TypeOform  data.status data.candiName data.RollNo
             data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
             data.MobNo data.AdharNo data.userId}} style="color:green">
-            {{data.uniqid}}</td>
+            {{data._id}}</td>
             <td>{{data.TypeOform}}</td>
             <td>{{data.userId}}</td>
             <td style="color:darkgreen">{{data.status}}</td>
          </tr>
          <br>
-         <button>verify hallticket</button>
+         {{!-- <button>verify hallticket</button> --}}
       </tbody>
    </table>
+   <div class="panel panel-default">
+      <div class="panel-body">
+         <b>Application Id:</b>
+         <div class="row">
+              <div class="col-lg-6">
+         <p style="color:green">{{data._id}}</p>
+         </div>
+            <div class="col-lg-6">
+              {{#if data.message}}
+              <div class="alert alert-info">
+  <strong>message from institution:</strong>{{data.message}}.
+</div>
+{{/if}}
+              
+            </div>
+         </div>
+         <hr>
+      </div>
+      <div class="row">
+         <div class="col-lg-6">
+            &nbsp; &nbsp;<b>Full Name:&nbsp; &nbsp;{{data.candiName}}</b><br>
+            &nbsp; &nbsp;<b>Father Name:&nbsp; &nbsp;{{data.fatherName}}</b><br>
+            &nbsp; &nbsp;<b>Mother Name:&nbsp; &nbsp;{{data.motherName}}</b><br>
+            &nbsp; &nbsp;<b>School Name:&nbsp; &nbsp;{{data.schoolName}}</b><br>
+            &nbsp; &nbsp;<b>School Code:&nbsp; &nbsp;{{data.schoolCode}}</b><br>
+            &nbsp; &nbsp;<b>Adhaar Number:&nbsp; &nbsp;{{data.AdharNo}}</b><br>  
+         </div>
+         <div class="col-lg-6">
+            &nbsp; &nbsp;<b>User Id:&nbsp; &nbsp;{{data.userId}}</b><br>
+            &nbsp; &nbsp;<b>Residential Address:&nbsp; &nbsp;{{data.ResidentialAddr}}</b><br>
+            &nbsp; &nbsp;<b>Mobile Number:&nbsp; &nbsp;{{data.MobNo}}</b><br>
+            &nbsp; &nbsp;<b>Roll Number :&nbsp; &nbsp;{{data.RollNo}}</b><br>
+            &nbsp; &nbsp;<b>Date Of Birth:&nbsp; &nbsp;{{data.dob}}</b><br>
+            &nbsp; &nbsp;<b>Application For:&nbsp; &nbsp; {{data.TypeOform}}</b><br>
+            &nbsp; &nbsp;<b>Application status:&nbsp; &nbsp;<b style="color:darkgreen">{{data.status}}</b></b><br>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-lg-6">
+           {{#if (eq data.status "Rejected")}}
+            {{!-- &nbsp;{{textarea value=message disabled="IsRejected" placeholder="please comment your reason for rejection..."}} --}}
+            &nbsp; &nbsp;<button type="button" class="btn btn-danger" disabled="IsRejected"  {{action "Update" data.userId data._id data.TypeOform}}>Admission card Reject</button>
+         {{else}}
+          &nbsp;{{textarea value=message placeholder="please comment your reason for rejection..."}}
+            &nbsp; &nbsp;<button type="button" class="btn btn-danger"  {{action "Update" data.userId data._id data.TypeOform}}>Admission card Reject</button>
+         {{/if}}
+         </div>
+         <div class="col-lg-6">
+            {{#if (eq data.status "Hall ticket auto generation sucessfully done")}}
+            &nbsp; &nbsp;<button type="button" disabled={{isCancelled}} class="btn "{{action "Done" data.userId data.TypeOform}}>Process Application Form</button>
+           <b style="color:Tomato;"> Already Done</b>
+            {{else}}
+            &nbsp; &nbsp;<button type="button" class="btn "{{action "Done" data._id data.userId data.TypeOform}}>Process for generate Admission card</button>
+            {{/if}}
+         </div>
+      </div>
+      <br>
+       </div>
    {{/each}}
+   
+  
+ 
+   <br>
 </div>

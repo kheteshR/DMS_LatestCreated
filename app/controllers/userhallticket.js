@@ -2,9 +2,9 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     actions:{
-        JsonToPdf:function(){
-        
-        }
+        // download:function(candiName,motherName,Seat_Number,HallCenter){
+            
+        // }
     }
    
 });

@@ -1,0 +1,78 @@
+{{partial 'navbar'}}
+<br>
+<div class="w3-panel w3-card">
+   <div class="row">
+      <div class="col-lg-4">
+         <img class="" height="50" width="50"  src="assets/MH.png">
+      </div>
+      <div class="col-lg-8">
+         <h2><strong>Re Apply with correct information form Here</strong></h2>
+      </div>
+   </div>
+   <h5><strong>Note:</strong>All * fields are mendatory</h5>
+   {{#if showAlert}}
+   <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Application id:{{id}}</strong>
+      <strong>Success!</strong>your transaction id is&nbsp;<b style="color:blue">{{TxHash}}</b>.<br>
+      <strong>Form submitted back to Divisinal Board successfully.</strong>
+   </div>
+   {{/if}}
+   <div class="layout-column flex-xs flex-gt-xs-90" style="margin-left:10%;">
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Name" required=true value=candiName onChange=(action (mut candiName)) errorMessages=(hash
+         required="Address is required."
+         ) icon="face"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Father Name" required=true value=fatherName onChange=(action (mut fatherName)) errorMessages=(hash
+         required="Address is required."
+         ) icon="person"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Mother name" required=true value=motherName onChange=(action (mut motherName)) errorMessages=(hash
+         required="Address is required."
+         ) icon="person"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter School Code" type="number" required=true value=schoolCode onChange=(action (mut schoolCode)) errorMessages=(hash
+         required="Address is required."
+         ) icon="input"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         <label class="flex-20">Select your school Name:</label>&nbsp;
+         {{schoolName}}
+         &nbsp;
+         {{#if School}}
+         <strong>You have selected the  <code>{{School}}</code></strong>
+         {{/if}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Residential Address" required=true value=ResidentialAddr onChange=(action (mut ResidentialAddr)) errorMessages=(hash
+         required="Address is required."
+         ) icon="place"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter roll number"  value=RollNo onChange=(action (mut RollNo)) errorMessages=(hash) icon="power_input"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Mobile Number" max="10" value=MobNo onChange=(action (mut MobNo)) errorMessages=(hash) 
+         errorMessages=(hash required="Mobile no. is not  correct.") icon="dialpad"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="Enter Adhaar Number"  value=AdharNo onChange=(action (mut AdharNo)) errorMessages=(hash) 
+         icon="perm_identity"}}
+      </div>
+      <div  class="layout layout-sm-column">
+         {{paper-input class="flex-90" label="select date"  type="date" value=dob onChange=(action (mut dob)) errorMessages=(hash) 
+         icon="date_range"}}
+      </div>
+      <br>
+      <div  class="layout layout-sm-column">
+         <div class="col-sm-4"></div>
+         <button class="flex-20" {{action "targetButton" schoolName RollNo MobNo AdharNo schoolCode candiName fatherName motherName dob}}>Submit application form</button>
+      </div>
+      <br>
+      <br>
+   </div>
+</div>

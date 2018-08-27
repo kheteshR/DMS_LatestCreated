@@ -4,7 +4,7 @@
       <div class="All-Documents" >All Documents</div>
    </div>
    <div class="Pending" style="">Pending</div>
-   <div class="Pending-1" style="">Inbox</div>
+   <div class="Pending-1" style="">Inbox &nbsp;&nbsp; {{UploadLength}}</div>
    <div class="Pending-2" style="">Request</div>
    {{#link-to 'statusupload'}} <div class="Pending-3" style="">Host Documents</div>{{/link-to}}
    <br>
@@ -12,7 +12,9 @@
    <div class="Documents">
       Documents
    </div>
-   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >View All Documents</button>
+    {{#link-to 'statusupload'}}
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7">View All Documents</button>
+   {{/link-to}}
    <br>
    <hr>
 </div>
@@ -20,16 +22,17 @@
    <br>
    <div class="row">
       <div class="col-lg-6">
-         <button class="btn" style="	width: 157px;	height: 40px;	border-radius: 4px;" type="button" data-toggle="dropdown"><span class="caret"></span>All Documents</button>
+         <button class="btn" style="width: 157px;	height: 40px;	border-radius: 4px;" type="button" data-toggle="dropdown"><span class="caret"></span>All Documents</button>
       </div>
       <div class="col-lg-6">
          {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
       </div>
    </div>
    <hr>
-   {{!-- ------------------------------>>>>>>>><<<<<<<<<----------- --}}
+   
    <div class="row" style="background-color:">
       <div class="col-md-4 colour-3" style="background:;text-align:center;">
+          <div class="w3-panel w3-card">  
          <h3>
             <b>
             Inbox
@@ -45,11 +48,13 @@
          font-size="2rem"
          font-family="inherit"
          }}
-         210
+         {{UploadLength}}
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>
+      </div>
       <div class="col-md-4" style="background:;text-align:center;">
+          <div class="w3-panel w3-card">
          <h3>
             <b>
             Request for update 
@@ -69,7 +74,9 @@
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>
+      </div>
       <div class="col-md-4" style="background:;text-align:center;">
+          <div class="w3-panel w3-card">
          <h3>
             <b>
             Hall Tickets
@@ -89,26 +96,30 @@
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>
+      </div>
    </div>
    {{!-- -------------------->><<-------------------- --}}
    <div class="Block">
       <div class="SSLC-Documents ">
-         SSC Documents
+         HSC & SSC Documents
       </div>
       <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : 100</label>
+         <label style="padding-left:4%;">Total Document : {{SSCdataLength}} SSC Marksheet Hosted</label>
+       </div>
+       <div class="row">
+         <label style="padding-left:4%;">Total Document : {{HSCdataLength}} HSC Marksheet Hosted</label>
       </div>
    </div>
-   <br>
-   <div class="Block">
+   
+   {{!-- <div class="Block">
       <div class="SSLC-Documents ">
          HSC Documents
       </div>
       <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : 110</label>
+         <label style="padding-left:4%;">Total Document : {{HSCdataLength}} HSC Marksheet Hosted</label>
       </div>
-   </div>
+   </div> --}}
    <br>
 </div>

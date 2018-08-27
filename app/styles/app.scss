@@ -3,6 +3,7 @@
 @import "svg-progress-circle";
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+@import "ember-power-select";
 
  
 .card {
@@ -145,6 +146,11 @@
   font-weight: 600;
   color: #ffffff;
 }
+.form-Align{
+	margin-left: 1cm;
+    margin-right: 1cm;
+
+}
  .top-padding-10{
 	padding-top: 10px;
   }
@@ -175,7 +181,7 @@
 	font-weight: bold;
   }
   .Call {
-	width: 213px;
+	width: 500px;
 	height: 22px;
 	font-family: ProximaNova;
 	font-size: 18px;
@@ -184,7 +190,7 @@
 	font-stretch: normal;
 	line-height: normal;
 	letter-spacing: normal;
-	margin-left:60%;
+	margin-left:50%;
 	margin-bottom:0%;
 	margin-top:12%;
 	color: #ffffff;
@@ -401,10 +407,17 @@
 	}
 	
 	.bar-1 {
-		width: 200px;
+		width: 250px;
 		height: 51px;
 		color:white;
 		background-color: #4990e2;
+	}
+	.bar-2 {
+		width: 250px;
+		height: 25px;
+		color:white;
+		text-align:center;
+		//background-color: #4990e2;
 	}
 	.video-align{
 		margin-top: 115px;
@@ -429,17 +442,21 @@
 		font-family: ProximaNova;
 		font-size: 12px;
 		font-weight: 600;
-	
 		color: #ffffff;
 	}
 	.Rectangle-2-Copy-7 {
 		width: 100%;
 		height: 51px;
 		margin-top:26px;
-	
 		background-color: #4990e2;
 	}
-
+	.Rectangle-2-Copy-8 {
+		width: 100%;
+		height: 50px;
+		color:white;
+		//  margin-top:26px;
+		background-color: #4990e2;
+	}
 	.Search-block {
 		width: 300px;
 		height: 40px;
@@ -484,7 +501,7 @@
 		background-color: #ffffff;
 	}
 	.sidebar {
-		width: 200px;
+		width: 250px;
 		height: 840px;
 		padding-top: 30px;
 		background-color: #242536;
@@ -492,7 +509,11 @@
 		.Block {
 			width: 100%;
 			height: 200px;
-			border: 1px solid gray;	
+			// border: 1px solid gray;	
+		}
+		.btn-success{
+			background-color: blue;
+			border-color: blue;
 		}
 		.SSLC-Documents {
 			width: 100%;
@@ -512,7 +533,7 @@
 	
 		}
 	.Pending-1{
-		width: 51px;
+		width: 100%;
 		height: 14px;
 		font-family: ProximaNova;
 		font-size: 14px;
@@ -583,7 +604,7 @@
 	color: #000000;
   }
   .Welcome-to-DMS {
-	width: 262px;
+	width: 400px;
 	height: 40px;
 	font-family: ProximaNova;
 	font-size: 24px;
@@ -718,6 +739,270 @@ html, body {
      padding: 20px;  
 }
 
+.mdl-card {
+	width: 550px;
+//min-height: 0;
+//margin: 10px auto;
+ margin-left:50px;
+ margin-top:60px;
+}
+
+.mdl-card__supporting-text {
+	width: 100%;
+	padding: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step {
+	width: 25%;
+	/* 100 / no_of_steps */
+}
+
+
+/* Begin actual mdl-stepper css styles */
+
+.mdl-stepper-horizontal-alternative {
+	display: table;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step {
+	display: table-cell;
+	position: relative;
+	padding: 24px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:hover,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+	background-color: rgba(0, 0, 0, .06);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+	border-radius: 15% / 75%;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child:active {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child:active {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:hover .mdl-stepper-circle {
+	background-color: 	#808080;
+}
+.io-style{
+	margin-right:6mm;
+
+}
+.vl {
+
+	margin-top: 1px;
+	margin-left: 28px;
+ 
+	border-left: 1.5px solid #A7B8C9;
+	height: 27px;
+ }
+
+.upper-line3{
+	margin-right:3mm;
+	margin-top:-76px;
+}
+.po-style{
+	margin-left:8mm;
+}
+.upper-line{
+	margin-top:-76px;
+ 
+}
+.upper-line2{
+	margin-left:3mm;
+	margin-top:-76px;
+}
+#request-details{
+	position: relative;
+	margin-left: 15px;
+	margin-bottom: 2mm;
+	font-size:12px; 
+	font-style:oblique;
+	font-weight: 900;
+	color:#A7B8C9;
+}
+ .circle {
+	width: 8.9px;
+	height: 8.9px;
+	margin-left: 25px;
+	background: #499EF6;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+ }
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child .mdl-stepper-bar-left,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child .mdl-stepper-bar-right {
+	display: none;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-circle {
+	width: 17px;
+	height: 17px;
+	margin: 0 auto;
+	background-color: 	#808080;
+	border-radius: 50%;
+	text-align: center;
+	margin-top: 1mm;
+	line-height: 5em;
+	font-size: 12px;
+	color: white;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle {
+ /* background-color: rgb(33, 150, 243);*/
+ background-color:#68DC83;
+}
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle1 {
+	/* background-color: rgb(33, 150, 243);*/
+	border: 5px solid #a1a1a1;
+	 width: 15px;
+	 height:15px;
+	 border-radius: 50%;
+	
+	 margin-left:30px;
+ }
+ .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle2 {
+	/* background-color: rgb(33, 150, 243);*/
+	position: relative;
+	border: 5px solid #a1a1a1;
+	 width: 15px;
+	 height:15px;
+	 border-radius: 50%;
+	 margin-left:-25px;
+	 margin-top:1.3mm;
+ }
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle:before {
+	content: "\2714";
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle *,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle * {
+	display: none;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle {
+	-moz-transform: scaleX(-1);
+	/* Gecko */
+	-o-transform: scaleX(-1);
+	/* Opera */
+	-webkit-transform: scaleX(-1);
+	/* Webkit */
+	transform: scaleX(-1);
+	/* Standard */
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle:before {
+	content: "\270E";
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title {
+ /* margin-top: 16px;*/
+ padding-bottom: 16px;
+	font-size: 14px;
+	font-weight: 900;
+}
+ .mdl-stepper-title2 {
+	margin-top: -19px;
+	padding-bottom: 1.5mm;
+ /* margin-bottom: -6px;*/
+	 font-size: 14px;
+	 font-weight: 900;
+ }
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+	text-align: center;
+	color: rgba(0, 0, 0, .26);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-title {
+	font-weight: 900;
+	color: rgba(0, 0, 0, .87);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.step-done .mdl-stepper-title,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.editable-step .mdl-stepper-title {
+	font-weight: 300;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+	font-size: 12px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-optional {
+	color: rgba(0, 0, 0, .54);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+	position: absolute;
+	top: 36px;
+	height: 5px;
+	border-top: 3px solid #697572;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+	right: 0;
+	left: 45%;
+	margin-left: 25px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left {
+ left:0.3px;
+	right: 45%;
+	margin-right: 25px;
+}
+.this-circle2 {
+	position: relative;
+	width: 8.9px;
+	height: 8.9px;
+	margin-left: 26px;
+	background: #499EF6;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.vl2 {
+	/*margin-top: -11px;*/
+		margin-left:30px;
+		border-left: 1.5px solid #A7B8C9;
+		height: 27px;
+	}
+.this-circle3 {
+	position: relative;
+	width: 8.9px;
+	height: 8.9px;
+	margin-left: 27px;
+	background: #499EF6;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.upper-line2{
+	margin-left:3mm;
+	margin-top:-76px;
+}
+
+.container{
+	//padding-left: 15px;
+	//padding-right:15px;
+	height: 200px;	width: 100%;
+	margin-top:50px;
+	//margin-left: -120px;
+	//margin-right: 400px;
+	border-radius: 2px;	background-color: whitesmoke;	box-shadow: 0 7px 16px 0 rgba(132,152,172,0.1);
+	}
 .login-container {
     padding-top: 60px;
 }
@@ -817,3 +1102,231 @@ html, body {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.steps-form {
+	display: table;
+	width: 100%;
+	position: relative; }
+.steps-form .steps-row {
+	display: table-row; }
+.steps-form .steps-row:before {
+	top: 14px;
+	bottom: 0;
+	position: absolute;
+	content: " ";
+	width: 100%;
+	height: 1px;
+	background-color: #ccc; }
+.steps-form .steps-row .steps-step {
+	display: table-cell;
+	text-align: center;
+	position: relative; }
+.steps-form .steps-row .steps-step p {
+	margin-top: 0.5rem; }
+.steps-form .steps-row .steps-step button[disabled] {
+	opacity: 1 !important;
+	filter: alpha(opacity=100) !important; }
+.steps-form .steps-row .steps-step .btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+	margin-top: 0; }
+	// =====================stepper=============================
+	$brand-primary: #2196F3; // Blue 500
+$brand-muted: rgba(0,0,0,.38);
+$grey-100: #F5F5F5;
+$grey-200: #EEEEEE;
+$grey-400: #BDBDBD;
+$border-radius: 3px;
+$shadow-z-1: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+
+// Module - Stepper (style structure based on http://maintainablecss.com)
+
+.stepper {
+    background-color: #fff;
+    margin-bottom: 90px;
+    border-radius: $border-radius;
+    box-shadow: $shadow-z-1; 
+}
+
+.stepper-steps {    
+    height: 72px;
+    background-color: #fff;
+    border-radius: $border-radius;
+    box-shadow: $shadow-z-1;
+}
+
+.stepper-steps-isOffset {
+    position: relative;
+    top: -30px;
+    margin: 0 15px -30px 15px;
+}
+
+.stepper-content {
+    padding: 24px;
+}
+
+.stepper-step {
+    float: left;
+    width: 33.333333333333%; // fixme: only works because there's 3 steps
+    padding: 24px;
+    cursor: pointer;
+    color: rgba(0,0,0,.87);
+    position: relative;
+    text-align: center;
+
+    &:not(.stepper-step-isDisabled):hover, 
+    &:not(.stepper-step-isDisabled):hover .stepper-stepContent {
+       background-color: $grey-100;
+    }
+    
+    &:first-child {
+        text-align: left;
+    }
+    
+    &:last-child {
+        text-align: right;
+    }
+}
+
+// Connector line
+.stepper-step {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 36px;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: $grey-400;
+    }
+    &:first-child::after {
+        left: 24px;
+    }
+    &:last-child::after {
+        right: 24px;
+    }
+}
+
+.stepper-step-isActive {
+    font-weight: 600;
+}
+.stepper-step-isValid {
+    font-weight: 600;
+}
+
+.stepper-step-isDisabled {
+    color: rgba(0,0,0,.38);
+    cursor: default;
+}
+
+.stepper-stepMarker {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    text-align: center;
+    color: white;
+    line-height: 24px;
+    background-color: $brand-muted;
+    border-radius: 24px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.stepper-step-isActive .stepper-stepMarker {
+    background-color: $brand-primary;
+}
+
+.stepper-step-isValid .stepper-stepMarker {
+    text-indent: -10000px;
+    background: url('data:image/svg+xml;charset=utf8,<svg fill="#FFFFFF" height="20" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/> <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat $brand-primary;
+    background-position: 2px 1px;
+    background-color: $brand-primary;
+}
+
+// colored block to cover the connector line where needed
+.stepper-stepContent {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    padding: 0 8px;
+    background-color: #fff;
+}
+.stepwizard-step p {
+    margin-top: 0px;
+    color:#666;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    /*opacity: 1 !important;
+    filter: alpha(opacity=100) !important;*/
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity:1 !important;
+    color:#bbb;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content:" ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Boilerplate for presentation only
+// body {
+//     background-color: $grey-200;
+//     padding: 60px 0;
+//     font-family: 'Roboto';
+//     font-size: 14px;
+//     font-weight: 400;
+// }
+
+// img { max-width: 100%; }
+
+
+@import "ember-power-select";

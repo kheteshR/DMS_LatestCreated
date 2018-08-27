@@ -6,7 +6,9 @@
    </h2>
 </div>
 <div class="row">
-   <h3><center><b>Fetch Documents</b></center></h3>
+   <h3>
+      <center><b>Fetch Documents</b></center>
+   </h3>
 </div>
 <div class="row">
    <div class="col-lg-1"></div>
@@ -15,29 +17,33 @@
          <button class="btn" style="width:100%;background-color:beige;"{{action "pull1"}}>
          <div class="panel-body" ><b>Class X MarkSheet</b></div>
          </button>
-           {{#if IsSuccess}}
+         {{#if IsSuccess}}
          <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong class="font">Success!</strong> <b>Your Marksheet pulled successfully .</b>
-        <br>
-        <b class="font">Content Reference:
-          <br><strong style="color:blue;font-family: 'Oswald', sans-serif !important;font-size:32px">{{filehash}}</strong></b>
-    </div>
-    {{/if}}
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong class="font">Success!</strong> <b>Your Marksheet pulled successfully .</b>
+            <br>
+            <b class="font">Content Reference:
+            <br><strong style="color:blue;font-family: 'Oswald', sans-serif !important;font-size:32px">{{filehash}}</strong></b>
+         </div>
+         {{/if}}
          {{#if ShowForm}}
          <br>
          <h2>
-            <b class="align-input">Submit Details below</b>
+            <b class="form-group form-Align">Submit Details below</b>
          </h2>
-         <div class="form-group align-input" >
-            <label class="">Name:</label>
-            {{input type="text" class="form-control " value=name  placeholder="name same as marksheet"}}
+         <div class="form-group form-Align" >
+            <label>Name:</label>
+            {{input type="text" class="form-control" value=name  placeholder="name same as marksheet"}}
          </div>
-         <div class="form-group align-input">
+         <div class="form-group form-Align">
             <label class="">Seat number:</label>
             {{input type="number" class="form-control" value=SeatNo  placeholder="Enter seat number" }}
          </div>
-         <button type="submit" class="btn align-input" style="background-color:#ef7c00;width:20%" {{action "submit1"}}>Submit</button>
+         <div class="form-group form-Align">
+            <label>Select Exam Session:</label>
+            {{select-component  class="flex-30" listitem=ListDocument selecteditemlist=propertyType }}
+         </div>
+         <button type="submit" class="btn form-group form-Align" style="background-color:#ef7c00;width:20%" {{action "submit1"}}>Submit</button>
          <br>
          <br>
          {{/if}}
@@ -56,21 +62,24 @@
          {{#if ShowForm1}}
          <br>
          <h2>
-            <b class="align-input">Submit Details below</b>
+            <b class="form-group form-Align">Submit Details below</b>
          </h2>
-         <div class="form-group align-input">
-            <label class="">Name:</label>
+         <div class="form-group form-Align">
+            <label>Name:</label>
             {{input type="text" class="form-control" value=name style="" placeholder="name same as marksheet"}}
          </div>
-         <div class="form-group align-input">
-            <label class="">Seat number:</label>
+         <div class="form-group form-Align">
+            <label>Seat number:</label>
             {{input type="number" class="form-control" value=SeatNo style="" placeholder="Enter seat number" }}
          </div>
-         <button type="submit" class="btn align-input" style="background-color:#ef7c00;width:20%" {{action "submit"}}>Submit</button>
+         <div class="form-group form-Align">
+            <label>Select Exam Session:</label>
+            {{select-component  class="flex-30" listitem=ListDocument selecteditemlist=propertyType }}
+         </div>
+         <button type="submit" class="btn form-group form-Align" style="background-color:#ef7c00;width:20%" {{action "submit"}}>Submit</button>
          <br>
          <br>
          {{/if}}
-  
       </div>
       <div class="col-lg-1"></div>
    </div>

@@ -6,7 +6,104 @@
       <div class="panel-heading">
           <h4><b>Hall Ticket</b></h4>
       </div>
-      <div class="panel-body">
+       <style>
+         .flex-container { 
+         width:100%;
+         height: 650px;
+         background-color:#FFB6C1;
+         text-align: center;
+         margin-left:0%; 
+         }
+         .text{
+         text-align:center;
+         }
+         table {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+         }
+         td, th {
+         border: 2px solid #000;;
+         text-align: left;
+         padding: 8px;
+         }
+         tr:nth-child(even) {
+         background-color: #dddddd;
+         }
+      </style>
+      <div class="card flex-container">
+         <div class="card-block">
+            <div class="row">
+               <div class="col-lg-2" style="background-color:">
+                  <img class="Fix-Image" style="margin-left:0px;" src="assets/MH.png">
+               </div>
+               <div class="col-lg-6" style="background-color:">
+                  <h2><b>Maharashtra State Board Secondary and Higher Secondary Education,Pune</b></h2>
+               </div>
+                <div class="col-lg-4" style="background-color:">
+               
+  <img class="Fix-Image" src="assets/download.png" alt="Card image">
+ 
+
+            </div>
+            </div>
+            <div class="row">
+               <h3><b>ADMISSION CARD,{{data.TypeOform}} EXAM</b></h3>
+               <table>
+                  <tr>
+                     <th>DIV BOARD</th>
+                     <th>DIST.& JR.COLL NO</th>
+                     <th>CENTER NO.</th>
+                     <th>M/F</th>
+                     <th>STREAM</th>
+                  </tr>
+                  <tr>
+                     <td>MUMBAI</td>
+                     <td>1452</td>
+                     <td>16.16.015</td>
+                     <td>MARCH-2010</td>
+                     <td></td>
+                  </tr>
+               </table>
+            </div>
+            <div class="row">
+               <div class="col-lg-6">
+                  <h3><b style="float:left;">Name:{{data.schoolCode}}</b></h3>
+                  <br>
+                  <h3><b style="float:left;">Mother's Name: {{data.motherName}}</b></h3>
+                  <br>
+                  <h3><b style="float:left;">Seat No.: {{data.Seat_Number}}</b></h3>
+                  <br>
+                  <h3><b style="float:left;">Center Name:{{data.HallCenter}}</b></h3>
+                  <br>
+               </div>
+            </div>
+            <div class="row">
+               <table>
+                  <tr>
+                     <th><b>Subject Name</b></th>
+                     <th>ENG</th>
+                     <th>HINDI</th>
+                     <th>MATHS</th>
+                     <th>MARATHI</th>
+                     <th>SCIENCE</th>
+                     <th>SOC SCIENCE</th>
+                  </tr>
+                  <tr>
+                     <td><b>Language of Ans</b></td>
+                     <td>ENG</td>
+                     <td>HINDI</td>
+                     <td>ENG</td>
+                     <td>MARATHI</td>
+                     <td>ENG</td>
+                     <td>ENG</td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+      <br>
+      {{!-- <div class="panel-body">
           <div class="row">
          <div class="col-md-4"><b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b></div>
           </div>
@@ -24,7 +121,7 @@
           <div class="row">
                    <div class="col-md-6"><b>Admission card:</b><b style="color:darkgreen">{{data.TypeOform}}</b></div>
               </div>
-          </div>
+          </div> --}}
     </div>
         {{!-- &nbsp;&nbsp;<b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b> --}}
           {{/each}}

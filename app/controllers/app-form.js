@@ -1,10 +1,15 @@
 import Controller from '@ember/controller';
-
+import sha256 from "npm:sha256";
 export default Controller.extend({
     selectedOption: null,
     ListDocument: ["SSC","HSC"],
+    ListDocument1: [ "Abhinav school", "Holly cross school", "St. john school", "Mother mary", "devine school" ],
+
+   
     actions:{
-        SubmitForm:function(){
+       
+        targetButton:function(){
+            var id;
             var uniqid=this.get('uniqid');
             this.set(uniqid,'uniqid');
             var Uid=this.get('userId');
@@ -18,7 +23,7 @@ export default Controller.extend({
             this.set('MotherName',MotherName);
             var schoolCode=this.get('schoolCode');
             this.set('schoolCode',schoolCode);
-            var schoolName=this.get('ResidentialAddr');
+            var schoolName=this.get('School');
             this.set('schoolName',schoolName);
             var RollNo=this.get('RollNo');
             this.set('RollNo',RollNo);
@@ -32,6 +37,7 @@ export default Controller.extend({
             this.set('propertyType',propertyType);
             var ResidentialAddr=this.get('ResidentialAddr');
             this.set('ResidentialAddr',ResidentialAddr);
+            
             var JsonData={
                 "candiName":candidateName,
                 "fatherName":FatherName,
@@ -48,9 +54,10 @@ export default Controller.extend({
                 "uniqid":uniqid,
                 "status":"processing",
                 "HallCenter":"",
-                "Seat_Number":""
-
+                "Seat_Number":"",
+                "message":""
             }
+            
             $.ajax({
                 type: "POST",
                 url: ' http://localhost:3007/admitValues',
@@ -58,17 +65,19 @@ export default Controller.extend({
                 contentType: "application/json",
                 dataType: "json",
                 success: function(response) {
-                console.log("Result=====>>",response)
+                console.log("Result=====>>",response.result)
+                id=response.result
+                console.log("id=======",id)
+                swal({
+                    title:'Application ID:'+" "+id+" "+'submitted successfully',
+                    animation: true,
+                    customClass: 'bounce'
+                    
+                  })
 
                 }
             })
-            
-            swal({
-                title:'Application ID:'+" "+uniqid+" "+'submitted successfully',
-                animation: true,
-                customClass: 'bounce'
-                
-              })
+           
        
         }
     }

@@ -12,6 +12,7 @@ export default Route.extend({
     var JsonData={
         "userId":userId
     }
+  
     $.ajax({
         type: "POST",
         url: 'http://localhost:3007/HallTicketForUser',
@@ -19,8 +20,13 @@ export default Route.extend({
         contentType: "application/json",
         dataType: "json",
         success: function(response) {
-        console.log("Result===== dashboard=====>>",response.Result.SSCresult);
+        console.log("Result===== dashboard=====>>",response.Result.SSCresult[0].status[0]);
+        console.log("Result===== dashboard=====>>",response.Result.SSCresult[0].status[1]);
+        console.log("Result===== dashboard=====>>",response.Result.SSCresult[0].status[2]);
         _this.controllerFor('DashBoard').set('data',response.Result.SSCresult);
+        _this.controllerFor('DashBoard').set('ProcessedStatus',response.Result.SSCresult[0].status[0]);
+        _this.controllerFor('DashBoard').set('InstituteStatus',response.Result.SSCresult[0].status[1]);
+        _this.controllerFor('DashBoard').set('DivisionalStatus',response.Result.SSCresult[0].status[2]);
         _this.controllerFor('DashBoard').set('DataLength',response.Length);
         }
     })
@@ -34,6 +40,19 @@ export default Route.extend({
         console.log("please check GetIssuedDocument=====>>",response.TotalObject.length)
         var series=response.TotalObject.length;
         _this.controllerFor('DashBoard').set('series',series);
+        }
+    })
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/AdmitCardStatus',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success:function(response) {
+            // console.log("Admit card status record=====>>",response.Result);
+        console.log("Admit card status=====>>",response.Result);
+        _this.controllerFor('DashBoard').set('AllInfo',response.Result);
+      
         }
     })
     }

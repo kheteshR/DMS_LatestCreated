@@ -2,11 +2,15 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     actions:{
-        pass:function(id,TypeOform,status,candiName,RollNo,dob,fatherName,motherName,schoolCode,schoolName,ResidentialAddr,MobNo,AdharNo,userId){
+        pass:function(data,Doc_id,id,TypeOform,status,candiName,RollNo,dob,fatherName,motherName,schoolCode,schoolName,ResidentialAddr,MobNo,AdharNo,userId){
+            console.log("Doc identity==>>>",Doc_id);
+            console.log("complete object==>>>",data);
             console.log("identity==>>>",id);
             console.log("candiName==>>>",candiName);
             console.log("status=======>>",status);
+            this.set('data',data);//
             this.set('id',id);//
+            this.set('Doc_id',Doc_id)
             this.set('candiName',candiName);//
             this.set('RollNo',RollNo);//
             this.set('dob',dob);//
@@ -21,6 +25,11 @@ export default Controller.extend({
             this.set('TypeOform',TypeOform);
             this.set('status',status);
             this.transitionToRoute('FullForm');
+        },
+        GetHistory:function(id){
+            this.set('id',id)
+            console.log("history button action",id)
+            this.transitionToRoute('History');
         }
     }
 

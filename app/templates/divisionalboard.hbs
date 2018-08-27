@@ -1,6 +1,5 @@
 {{partial 'navbar'}}
 <div class="sidebar">
-
    <div class="Documents">
      All Admission card
    </div>
@@ -10,6 +9,47 @@
       {{/link-to}}
    <br>
    <hr>
+    {{#link-to 'HallTicketRepo'}}
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" >All Generated Hall Ticket</button>
+      {{/link-to}}
+          {{!-- {{#link-to 'HallTicketRepo'}} --}}
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      {{!-- {{/link-to}} --}}
+      {{!-- ================================ --}}
+      <script TYPE="text/javascript"> function popup() {
+    
+      
+       
+          window.open("www.google.com", 'width=400,height=200,scrollbars=yes');
+           return false; } </script>
+
+
+      <a href="www.google.com" onClick="return popup()">my popup</a>
+      {{!-- ======================================= --}}
 </div>
 <div class="main">
    <br>
@@ -20,6 +60,7 @@
 {{!-- {{#each AllInfo as |data|}} --}}
    <div class="row" style="background-color:">
       <div class="col-md-6 colour-3" style="background:;text-align:center;">
+         <div class="w3-panel w3-card">
          <h3>
             <b>
             Total SSC Admit Card
@@ -41,7 +82,9 @@
          {{/progress-circle}}
          {{!-- {{/if}} --}}
       </div>
+      </div>
       <div class="col-md-6 colour-3" style="background:;text-align:center;">
+          <div class="w3-panel w3-card">
          <h3>
             <b>
                   Total HSC Admit Card
@@ -61,26 +104,23 @@
          {{/progress-circle/text}}
          {{/progress-circle}}
       </div>  
+      </div>
    </div>
 {{!-- {{/each}} --}}
    <div class="Block">
+     
       <div class="SSLC-Documents">
-        Admission card for SSC
+        Admission card Details
       </div>
       <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : {{SSC_Length}}</label>
+         <label style="padding-left:4%;">Total Admission card for SSC : {{SSC_Length}}</label>
       </div>
-   </div>
-   <br>
-   <div class="Block">
-      <div class="SSLC-Documents">
-        Admission card for HSC
-      </div>
-      <hr>
       <div class="row">
-         <label style="padding-left:4%;">Total Document : {{HSC_Length}}</label>
+         <label style="padding-left:4%;">Total Admission card for HSC : {{HSC_Length}}</label>
       </div>
    </div>
    <br>
+ 
+
 </div>

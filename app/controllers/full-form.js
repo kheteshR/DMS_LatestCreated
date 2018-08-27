@@ -5,13 +5,23 @@ export default Controller.extend({
     showAlert:false,
     isCancelled:true,
     actions:{
+        ReValidation:function(){
+            var _this=this
+            _this.transitionToRoute('reapplyfordocuments')
+        },
         Done:function(userId,TypeOform){
+            var _this=this
             console.log("your data====>>",userId,TypeOform)
             var Data={
                 "userId":userId,
                 "TypeOform":TypeOform
             }
-            var _this=this
+            var EmailInput={
+                "email":"rapiddmsdivisionalboard@gmail.com",
+                "subject":"Institution verification alert",
+                "text":"Hall ticket verification done ,please proceed ahead for futher approval"
+            }
+           
             $.ajax({
                 type: "POST",
                 url: 'http://localhost:3007/VerificationProcess',//sending request to anybody for document
@@ -19,8 +29,20 @@ export default Controller.extend({
                 contentType:"application/json",
                 dataType:"json",
                 success: function(response) {
-                console.log("Send Request",response);
+                console.log("Send Request verification",response);
                 _this.set('message',response.message);
+                _this.set('showAlert',true);
+              }  
+            })
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:3007/sendMail',//sending mail to divisional board for document
+                data: JSON.stringify(EmailInput),
+                contentType:"application/json",
+                dataType:"json",
+                success: function(response) {
+                console.log("Send Request",response);
+                _this.set('EmailMessage',response.message);
                 _this.set('showAlert',true);
               }  
             })

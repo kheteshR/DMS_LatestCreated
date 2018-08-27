@@ -1,28 +1,36 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
-    <h2>All Application form </h2>
+   <h2>All Application form </h2>
    <br>
-   {{#each AllInfo as |data|}}
-   <table class="table">
-      <thead>
-         <tr>
-            <th>Application Id:</th>
-            <th>Application Type:</th>
-            <th>User Id:</th>
-            <th>Status:</th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td {{action 'pass' data.uniqid data.TypeOform  data.status data.candiName data.RollNo
-            data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
-            data.MobNo data.AdharNo data.userId}} style="color:green">
-            {{data.uniqid}}</td>
-            <td>{{data.TypeOform}}</td>
-            <td>{{data.userId}}</td>
-            <td style="color:darkgreen">{{data.status}}</td>
-         </tr>
-      </tbody>
-   </table>
-   {{/each}}
+   <div class="well well-lg">
+      {{#paper-list}}
+      {{#each AllInfo as |data|}}
+      {{#paper-item class="md-3-line"}}
+      <div class="md-list-item-text">
+         <h3><b>Application Id:</b></h3>
+         <h3 {{action 'pass' data data._id data.uniqid data.TypeOform  data.status data.candiName data.RollNo
+         data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
+         data.MobNo data.AdharNo data.userId}} style="color:green">
+         {{data._id}}</h3>
+         <h4><b>User Id:</b></h4>
+         <h4>{{data.userId}}</h4>
+         <p>{{data.TypeOform}}</p>
+      </div>
+      {{paper-divider}}
+      {{#paper-button}} 
+      <h5><b>Status:</b></h5>
+      <span style="color:darkgreen"><b>{{data.status}}</b></span>{{/paper-button}}
+      {{#paper-button}} 
+      <h5><b>Message:</b></h5>
+      <span style="color:darkgreen"><b>{{data.message}}</b></span>{{/paper-button}}
+      {{/paper-item}}
+      <br>
+      <p>
+         <button class="btn btn-primary" type="button" {{action "GetHistory" data._id}}>
+         Get Audit Trail
+         </button>
+      </p>
+      {{/each}}
+      {{/paper-list}}
+   </div>
 </div>

@@ -23,6 +23,45 @@ export default Route.extend({
 
         }
     })
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/AdminUpload',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+        _this.controllerFor('dashboard').set('data',response.Result);
+        _this.controllerFor('dashboard').set('UploadLength',response.Result.length);
+
+        }
+    })
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/AdminUploadSSC',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+        _this.controllerFor('dashboard').set('SSCdataLength',response.Result.length);
        
+
+        }
+    })
+       
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/AdminUploadHSC',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+        _this.controllerFor('dashboard').set('HSCdataLength',response.Result.length);
+       
+
+        }
+    })
     }
 });

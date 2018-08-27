@@ -40,12 +40,14 @@
     "ember-export-application-global": "^2.0.0",
     "ember-js-pdf": "^0.4.2",
     "ember-load-initializers": "^1.0.0",
+    "ember-math-helpers": "^2.6.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-modal-dialog": "^3.0.0-beta.0",
     "ember-moment": "^7.7.0",
     "ember-paper": "^1.0.0-beta.8",
     "ember-paper-input": "0.0.4",
     "ember-plupload": "^1.13.21",
+    "ember-power-select": "^2.0.4",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.1.0",
     "ember-truth-helpers": "^2.0.0",
@@ -59,6 +61,7 @@
   },
   "dependencies": {
     "jspdf": "^1.4.1",
-    "node-unique-id-generator": "^0.1.0"
+    "node-unique-id-generator": "^0.1.0",
+    "sha256": "^0.2.0"
   }
 }

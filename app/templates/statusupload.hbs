@@ -1,23 +1,26 @@
 {{partial 'navbar'}}
 <div class="sidebar">
   <br>
+  <button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
   <div class="row">
-    <div class="col-md-4" style="	padding-left:1cm;">
+    <div class="col-md-2" style="	padding-left:1cm;">
    <img src="assets/icons8.png" class="icon">
    </div>
-   <div class="col-md-8" style="color:white" {{action "toggle"}}>
+   <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;" {{action "toggle"}}>
     Document Details</div>
     </div>
+    </button>
     <br>
+    <button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
     <div class="row">
-    <div class="col-md-4" style="	padding-left:1cm;">
+    <div class="col-md-2" style="	padding-left:1cm;">
    <img src="assets/icon1.png" class="icon">
    </div>
-    <div class="col-md-8" style="color:white">
-   <div  style="background-color:">Documents host</div>
+    <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;">
+   <div  style="background-color:" {{action "toggle1"}}>Documents host </div>
    </div>
 </div>
-  
+</button>
    <br>
    <hr>
 </div>
@@ -44,43 +47,59 @@
    {{/pl-uploader}}
 </div>
 {{else}}
+
+{{#each data as |personal index|}}
+
 <div class="row">
  <div class="table-responsive">          
   <table class="table">
     <thead>
       <tr>
+        
         <th>#</th>
         <th>Document Type</th>
         <th>Status</th>
-        <th>Date</th>
-        <th>Time</th>
+        <th>Date & Time</th>
         <th>Content Hash</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
-        <td>SSC Marksheet</td>
-        <td>Uploaded</td>
-        <td>03/08/2018</td>
-        <td>03:45:00</td>
-        <td></td>
+        <td>{{add index 1}}</td>
+        <td>{{personal.DocumentType}}</td>
+        <td style="color:forestgreen">{{personal.status}}</td>
+        <td>{{personal.created_at}}</td>
+        <td style="color:green">{{personal.filesHash.0.hash}}</td>
       </tr>
     </tbody>
   </table>
   </div>
- 
 </div>
+{{/each}}
 
 {{/if}}
-</div>
-
 <br>
+
 {{#if isShowingModal}}
-{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+<div class="container">
+  <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> You should Hosted File successfully.
+    <p>your transaction hash</p><strong>{{txHash}}</strong>
+  </div>
+</div>
+{{/if}}
+</div>
+<br>
+
+{{!-- {{#modal-dialog}}
+  Oh hai there!
+{{/modal-dialog}} --}}
+{{!-- {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
 <h3>file Uploaded Sucessfully... !</h3>
 <div class="modal-header">
-   <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+   <button type="button" class="close" {{action "Goto" }}><img src="assets/images7.jpg" alt="Smiley face" width="50" height="50"></button>
 </div>
-{{/modal-dialog}}
-{{/if}}
+
+{{/modal-dialog}} --}}
+ 

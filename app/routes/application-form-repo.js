@@ -11,8 +11,10 @@ export default Route.extend({
             contentType: "application/json",
             dataType: "json",
             success:function(response) {
-            console.log("Result=====>>",response.Result);
+            console.log("Result in applicaton form repo=====>>",response.Result);
             _this.controllerFor('ApplicationFormRepo').set('AllInfo',response.Result);
+            // _this.controllerFor('ApplicationFormRepo').set('userId',response.Result.userId);
+            // console.log(response.Result.userId)
             }
         })
     }

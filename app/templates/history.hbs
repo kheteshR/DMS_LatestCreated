@@ -1,0 +1,24 @@
+{{partial 'navbar'}}
+
+<br>
+{{!-- <div class="jumbotron"> --}}
+              <div class="w3-panel w3-card" style="background-color:">
+                  <br>
+  {{!-- <div class="card card-body"> --}}
+      <h2><b>Audit Trail </b></h2>
+        <h3><b>Application Id:</b>{{Id}}</h3>
+      {{#each AllData as |data|}}
+   <div class=" list-group-item list-group-item-success" >
+  <li><b>Cryoto Hash For Data:</b>{{data.rapidID}}</li>
+  <li><b>Message:</b>{{data.message}}</li>
+  <li><b>Status:</b>{{data.status}}</li>
+  <li><b>Time Stamp:</b>{{data.created_At}}</li>
+  <li><b>Form Type:</b>{{data.TypeOform}}</li>
+
+</div>
+{{/each}}
+  {{!-- </div> --}}
+  <br>
+  </div>
+{{!-- </div> --}}
+<br>
