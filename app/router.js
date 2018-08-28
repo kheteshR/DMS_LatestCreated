@@ -32,6 +32,7 @@ Router.map(function() {
   this.route('hallticket');
   this.route('reapplyfordocuments');
   this.route('History');
+  this.route('verificationofdocs');
 });
 
 export default Router;

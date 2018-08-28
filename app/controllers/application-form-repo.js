@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+    // options:["Class","X","Marksheet"],
+    // delay:2000,
     actions:{
+
         pass:function(data,Doc_id,id,TypeOform,status,candiName,RollNo,dob,fatherName,motherName,schoolCode,schoolName,ResidentialAddr,MobNo,AdharNo,userId){
             console.log("Doc identity==>>>",Doc_id);
             console.log("complete object==>>>",data);

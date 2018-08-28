@@ -62,6 +62,7 @@
   "dependencies": {
     "jspdf": "^1.4.1",
     "node-unique-id-generator": "^0.1.0",
-    "sha256": "^0.2.0"
+    "sha256": "^0.2.0",
+    "uniqid": "^5.0.3"
   }
 }
