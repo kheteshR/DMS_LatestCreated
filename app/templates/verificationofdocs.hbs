@@ -1,1 +1,84 @@
-{{outlet}}
+{{partial 'navbar'}}
+<div class="container-fluid login-container">
+   <br>
+   <div class="row">
+      <div class="col-md-6 col-md-offset-6">
+         <div class="panel panel-login rcorners1">
+            <div class="panel-heading">
+               <div class="row">
+                  <div class="col-xs-6">
+                     <a href="#" id="login-form-link" {{action 'toggle' 'login'}}>Get Your Transaction Hash For Verification</a>
+                  </div>
+                  <div class="col-xs-6">
+                     <a href="#" id="register-form-link" {{action 'toggle'}}>Please Verify Document By Transaction Hash</a>
+                  </div>
+               </div>
+               <hr>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  {{#if VarifyAlert}}
+                  <div class="alert alert-success alert-dismissible">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     <strong>Document & Content Hash retrieved successfully!</strong><br>
+                     Verified Document from ledger :<br>
+                     <div style="color:blue;width:5">{{Document}}</div>
+                     <br>
+                     Verified Document Content Hash:<br>
+                     <b style="color:blue">{{ContentHash}}</b><br>
+                  </div>
+                  {{/if}}
+                  {{#if showAlert}}
+                  <div class="alert alert-success alert-dismissible">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     <strong>Transaction Hash & Content Hash retrieved successfully!</strong>
+                     Transaction Hash:<br>
+                     <div style="color:blue;width:5">{{TransactionHash}}</div>
+                     <br>
+                     Document Content  Hash:<br>
+                     <b style="color:blue">{{ContentHash}}</b><br>
+                  </div>
+                  {{/if}}
+                  <div class="col-lg-12">
+                     {{#if loginactive}}
+                     <label>Name Of Candidate Same As Marksheet</label>								
+                     {{input type="text"  class="form-group form-control" placeholder="Name of Candidate" value=name}}								
+                     <label>Enter Seat Number</label>
+                     {{input type="text"  class="form-group form-control" placeholder="SeatNumber" value=SeatNumber}}
+                     <label>Select Marksheet Type</label>
+                     {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
+                     <br>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-sm-6 col-sm-offset-3">
+                              <input type="button" class="form-control btn btn-login" value="Submit Details" {{action "submit"}}/>										
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="text-center">
+                                 {{!-- <a href="" tabindex="5" class="forgot-password">Forgot Password?</a> --}}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {{else}}
+                     <label>Please Enter Your Transaction Hash For Complete Verification Process</label>
+                     {{input type="text" class="form-group form-control" placeholder="Enter Your Transaction Hash Here..." value=TxHash}}
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-sm-6 col-sm-offset-3">
+                              <input type="submit" class="form-control btn btn-register" value="Verify" {{action "verifification"}}>
+                           </div>
+                        </div>
+                     </div>
+                     {{/if}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

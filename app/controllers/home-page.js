@@ -63,9 +63,12 @@ export default Controller.extend({
                         console.log("Institute@info.com loged in")
                         mycontroller.transitionToRoute('divisionalboard')
                     } else if (walletName == "Employer@info.com") {
+                        mycontroller.set('walletname',walletname)
+                        console.log(walletname)
                         console.log("entering employer dashboard")
                         mycontroller.transitionToRoute('employerdashboard')
                     }else if(walletName == "Institution@info.com"){
+                        mycontroller.set('walletname',walletname)
                         mycontroller.transitionToRoute('InstituteDashboard')
                     }
                 }

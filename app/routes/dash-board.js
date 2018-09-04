@@ -12,7 +12,29 @@ export default Route.extend({
     var JsonData={
         "userId":userId
     }
-  
+    $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/GetAllGeneratedRequest',
+        data: JSON.stringify(JsonData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("fetch all request",response); 
+        
+        if(response.message.status==="no request yet generated"){
+            console.log("length is zero======>>",response.message.status)
+            var message=response.message.status;
+            _this.controllerFor('DashBoard').set('message',message);
+        }else{
+        var TotalRequest=response.result;
+        console.log("TotalRequest============>",TotalRequest);
+        const TotalRequestLength=response.result.length;
+        console.log("TotalRequestLength============>",TotalRequestLength);
+        _this.controllerFor('DashBoard').set('TotalRequestLength',TotalRequestLength);
+        _this.controllerFor('DashBoard').set('TotalRequest',TotalRequest);
+        }
+        }
+    })
     $.ajax({
         type: "POST",
         url: 'http://localhost:3007/HallTicketForUser',

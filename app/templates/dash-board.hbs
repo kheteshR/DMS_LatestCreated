@@ -111,7 +111,13 @@
                <br>
                </b>
             </h3>
-            <h4 style="color:green; text-align:center;margin:20%;"> No request yet</h4>
+            {{#if (eq message "no request yet generated")}}
+            <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
+            {{else}}
+            <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
+            <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
+            {{/if}}
+            {{!-- <h4 style="color:green; text-align:center;margin:20%;"> No request yet</h4> --}}
          </div>
       </div>
       {{!-- 

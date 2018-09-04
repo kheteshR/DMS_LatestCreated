@@ -6,9 +6,7 @@
    <br>
    <div class="card" style="background-color: #f16e00;" {{action 'show'}}>
    <div class="card-block">
-      <p class="" style="color: white; text-align:center" >
-        {{!-- {{ember-animated-headline options=options delay=delay}} --}}
-        Class X Marksheet</p>
+      <p class="" style="color: white; text-align:center" >Class X Marksheet</p>
    </div>
    </div>
    {{#if IsSHowForm}}
@@ -18,7 +16,7 @@
       <br>
       <b>Please Select Document Type :</b> {{select-component  listitem=ListDocument selecteditemlist=propertyType}}
       <br>
-      <b>Receiver Wallet Address :</b>  {{input type="text" class="form-control"  value=Address placeholder="Please enter Address of person"}}
+      <b>Receiver Address :</b>  {{input type="text" class="form-control"  value=Address placeholder="Please enter Address of person"}}
       <br>
       <button type="submit" class="btn btn-primary mb-2" {{action "SendRequest"}}>Confirm Request</button>
       <br>

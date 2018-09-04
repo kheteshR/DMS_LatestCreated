@@ -33,6 +33,7 @@ Router.map(function() {
   this.route('reapplyfordocuments');
   this.route('History');
   this.route('verificationofdocs');
+  this.route('test');
 });
 
 export default Router;
