@@ -4,6 +4,7 @@ export default Controller.extend({
     ShowForm:false,
     ShowForm1:false,
     IsSuccess:false,
+   
     ListDocument:["MARCH","JULY-OCTOBER"],
     actions:{
         pull1:function(){
@@ -42,13 +43,13 @@ export default Controller.extend({
                 that.set('filehash',hash)
                 console.log(`hash========>>${hash}`)
                 // sessionStorage.setItem('hash', hash);
-
-               
+                
                 }  
             })
            
             that.set('IsSuccess',true)
             that.set('hash',hash)
+          
         }
 
     }

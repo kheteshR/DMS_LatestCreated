@@ -13,7 +13,7 @@ export default Route.extend({
             contentType: "application/json",
             dataType: "json",
             success: function(response) {
-            console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+            console.log("Result===== dashboard=====>>Status Upload",response.Result.length);
             _this.controllerFor('statusupload').set('data',response.Result);
             for(var i=0;i<=response.Result.length;i++){
                 console.log("hash==========",response.Result[i].filesHash[i].hash);
@@ -21,7 +21,6 @@ export default Route.extend({
             }
             _this.controllerFor('statusupload').set('ArrayLength',response.Result.length);
             _this.controllerFor('statusupload').set('isShowingModal',false);
-            
             }
         })
     }

@@ -27,8 +27,10 @@
 <div class="main">
    <br>
    {{#if ChangePage}}
+      <div class="row">
+      <div class="col-md-6 col-md-offset-6">
    <div class="row">
-      <h1><strong>Upload Documents</strong></h1>
+      <h1 style="text-align:center;"><strong> Upload Documents</strong></h1>
          <hr style="background-color:gray">
    </div>
 <div class="row" style="background-color:light-gray">
@@ -36,7 +38,7 @@
 <h3>Please select your document before upload</h3>
 <div  style="color:blue"><b>Select category from here</b></div>
 
-<div class="" >{{select-component listitem=ListDocument selecteditemlist=propertyType}}</div>
+<div class="">{{select-component listitem=ListDocument selecteditemlist=propertyType}}</div>
 <br> 
 <label class="formlab" style="color:black;" for="usr">Name of Document Owner</label>
 {{input type="text"  class="form-control" value=name placeholder="Enter Name"}}
@@ -46,17 +48,19 @@
    <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">&nbsp;Click Here To Upload Documents</a>
    {{/pl-uploader}}
 </div>
+</div>
+</div>
 {{else}}
-
+<h2>All Uploaded Document</h2>
 {{#each data as |personal index|}}
 
 <div class="row">
  <div class="table-responsive">          
-  <table class="table">
+  <table class="">
     <thead>
       <tr>
-        
         <th>#</th>
+        {{!-- <th>Candidate Name</th> --}}
         <th>Document Type</th>
         <th>Status</th>
         <th>Date & Time</th>
@@ -66,6 +70,7 @@
     <tbody>
       <tr>
         <td>{{add index 1}}</td>
+        {{!-- <td>{{personal.candiName}}</td> --}}
         <td>{{personal.DocumentType}}</td>
         <td style="color:forestgreen">{{personal.status}}</td>
         <td>{{personal.created_at}}</td>
@@ -92,14 +97,5 @@
 </div>
 <br>
 
-{{!-- {{#modal-dialog}}
-  Oh hai there!
-{{/modal-dialog}} --}}
-{{!-- {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
-<h3>file Uploaded Sucessfully... !</h3>
-<div class="modal-header">
-   <button type="button" class="close" {{action "Goto" }}><img src="assets/images7.jpg" alt="Smiley face" width="50" height="50"></button>
-</div>
 
-{{/modal-dialog}} --}}
  

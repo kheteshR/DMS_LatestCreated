@@ -9,10 +9,11 @@ export default Controller.extend({
             var _this=this
             _this.transitionToRoute('reapplyfordocuments')
         },
-        Done:function(userId,TypeOform){
+        Done:function(Doc_id,userId,TypeOform){
             var _this=this
-            console.log("your data====>>",userId,TypeOform)
+            console.log("your data====>>",Doc_id,userId,TypeOform)
             var Data={
+                "_id":Doc_id,
                 "userId":userId,
                 "TypeOform":TypeOform
             }

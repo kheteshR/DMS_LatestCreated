@@ -28,8 +28,7 @@ export default Controller.extend({
                 "RollNo":RollNo,
                 "AdharNo":AdharNo,
                 "schoolCode":schoolCode,
-                "schoolName":schoolName,
- 
+                "schoolName":schoolName
             }
             $.ajax({
                 type: "POST",

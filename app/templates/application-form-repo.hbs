@@ -1,11 +1,38 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
-   <h2>All Application form </h2>
+   <h2><b><em>All Application Form</em></b></h2>
    <br>
    <div class="well well-lg">
-      {{#paper-list}}
-      {{#each AllInfo as |data|}}
-      {{#paper-item class="md-3-line"}}
+      {{!-- {{#paper-list}} --}}
+      {{#each AllInfo as |data index|}}
+      <table id="fresh-table" class="table">
+         <thead>
+            <th>Serial No.</th>
+            <th>Application Id:</th>
+            <th>User Id:</th>
+            <th>Status:</th>
+            <th>Time Stamp:</th>
+            <th>Message:</th>
+            <th>Form Type:</th>
+            {{!-- 
+            <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+            --}}
+         </thead>
+         <tbody>
+            <tr>
+               <td>{{add index 1}}</td>
+               <td {{action 'pass' data data._id data.uniqid data.TypeOform  data.status data.candiName data.RollNo
+               data.dob data.fatherName data.motherName data.schoolCode data.schoolName data.ResidentialAddr
+               data.MobNo data.AdharNo data.userId}}  style="color:green">{{data._id}}</td>
+               <td>{{data.userId}}</td>
+               <td style="color:darkgreen">{{data.status}}</td>
+               <td>{{data.created_At}}</td>
+               <td>{{data.message}}</td>
+               <td>{{data.TypeOform}}</td>
+            </tr>
+         </tbody>
+      </table>
+      {{!-- {{#paper-item class="md-3-line"}}
       <div class="md-list-item-text">
          <h3><b>Application Id:</b></h3>
          <h3 {{action 'pass' data data._id data.uniqid data.TypeOform  data.status data.candiName data.RollNo
@@ -23,7 +50,7 @@
       {{#paper-button}} 
       <h5><b>Message:</b></h5>
       <span style="color:darkgreen"><b>{{data.message}}</b></span>{{/paper-button}}
-      {{/paper-item}}
+      {{/paper-item}} --}}
       <br>
       <p>
          <button class="btn btn-primary" type="button" {{action "GetHistory" data._id}}>
@@ -31,6 +58,6 @@
          </button>
       </p>
       {{/each}}
-      {{/paper-list}}
+      {{!-- {{/paper-list}} --}}
    </div>
 </div>

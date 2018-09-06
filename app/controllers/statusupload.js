@@ -3,7 +3,8 @@ import Controller from '@ember/controller';
 export default Controller.extend({
     isShowingModal:false,
     selectedOption: null,
-    ListDocument: ["SSC Marksheet","HSC Marksheet"],
+  
+    ListDocument: ["SSC","HSC"],
     ChangePage:true,
     actions:{
         toggle:function(){
@@ -14,6 +15,7 @@ export default Controller.extend({
             this.set("isShowingModal",false);
             this.set('ChangePage',true)
            },
+         
         uploadDoc:function(file){
             var mycontroller=this;
             var msg=this.get('propertyType');

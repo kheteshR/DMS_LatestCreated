@@ -3,7 +3,27 @@
    <p class="bar-2" >User Dashboard</p>
    <br>
    <br>
-    
+   <style>
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step {
+      display: table-cell;
+      position: relative;
+      padding: 35px;
+      }
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left
+      {
+      left: 0.3px;
+      right: 60%;
+      margin-right: 25px;
+      }
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+      right: 0;
+      left: 50%;
+      margin-left: 25px;
+      }
+      .mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle2 {
+      margin-top: -13px;
+      }
+   </style>
    {{#link-to 'AppForm'}}
    <button  class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;">Apply for Admission card</button>
    {{/link-to}}
@@ -18,280 +38,343 @@
    <button class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;">Pull Documents</button>
    {{/link-to}}
    <br>
-   <hr>
+   <br>
    <button type="button" class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;"{{action "GoToRepository"}}>Documents Repository</button>
    <br>
    <hr>
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;"{{action "ChangeForRequest"}}>Request For Duplicate Marksheet</button>
+   <hr>
 </div>
 <div class="main">
+<br>
+
+{{#if RequestForDuplication}}
+<h2><b>Request For Duplicate Marksheet</b></h2>
+<div class="container-fluid login-container">
    <br>
    <div class="row">
-      <div class="col-lg-6">
-         <div style="	width: 157px;	height: 40px;	border-radius: 4px;" ><b style="color:blue">Hello&nbsp;{{walletname}}</b></div>
+      <div class="col-md-6 col-md-offset-6">
+         <div class="panel panel-login rcorners1">
+            <div class="panel-heading">
+               <div class="row">
+                     <a href="#" id="login-form-link" >Apply For Duplicate Marksheet</a>
+               </div>
+               <hr>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                
+                  {{#if showAlert}}
+                  <div class="alert alert-success alert-dismissible">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     <strong>Duplicate Marksheet with digital signature fetched successfully!</strong>
+                  </div>
+                  {{/if}}
+                  <div class="col-lg-12">
+               
+                     <label>Name Of Candidate Same As Marksheet</label>								
+                     {{input type="text"  class="form-group form-control" placeholder="Name of Candidate" value=name}}								
+                     <label>Enter Seat Number</label>
+                     {{input type="text"  class="form-group form-control" placeholder="SeatNumber" value=SeatNumber}}
+                     <label>Select Marksheet Type</label>
+                     {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
+                     <br>
+                     
+            <label>Select Exam Session:</label>
+            {{select-component  class="form-control border" listitem=ListDocument1 selecteditemlist=propertyType1 }}
+              <br>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-sm-6 col-sm-offset-3">
+                              <input type="button" class="form-control btn btn-login" value="Submit Details" {{action "submit"}}/>										
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="text-center">
+                                 {{!-- <a href="" tabindex="5" class="forgot-password">Forgot Password?</a> --}}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                    
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="col-lg-6">
-         {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
+   </div>
+</div>
+{{else}}
+<div class="row">
+   <div class="col-lg-6">
+      <div style="	width: 157px;	height: 40px;	border-radius: 4px;" ><b style="color:blue">Hello&nbsp;{{walletname}}</b></div>
+   </div>
+   <div class="col-lg-6">
+      {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
+   </div>
+</div>
+<hr>
+<div class="row" style="">
+   <div class="col-md-3 colour-3" style="background:;text-align:center;">
+      <div class="w3-panel w3-card">
+         <h3>
+            <b>
+            Inbox
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage=series
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         color="deepskyblue"
+         font-family="inherit"
+         }}
+         {{series}}
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+       
       </div>
+   </div>
+   <div class="col-md-3" style="background:;text-align:center;">
+      <div class="w3-panel w3-card">
+         <h3>
+            <b>
+            Uploaded Doc
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage="9"
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         9
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+   </div>
+   <div class="col-md-3" style="text-align:center;">
+      <div class="w3-panel w3-card">
+         <h3>
+            <b>
+            {{#link-to 'userhallticket'}}
+            Hall Ticket 
+            {{/link-to}}
+            </b>
+         </h3>
+         {{#progress-circle
+         size="200"
+         strokeWidth="10"
+         percentage=DataLength
+         as |elementId radius|
+         }}
+         {{#progress-circle/text
+         font-size="2rem"
+         font-family="inherit"
+         }}
+         {{DataLength}}
+         {{/progress-circle/text}}
+         {{/progress-circle}}
+      </div>
+   </div>
+   <div class="col-md-3">
+      <div class="w3-panel w3-card">
+         <h3>
+            <b style="text-align:center;margin:30%;">
+            Request
+            <br>
+            </b>
+         </h3>
+         {{#if (eq message "no request yet generated")}}
+         <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
+         {{else}}
+         <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
+         <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
+         {{/if}}
+      </div>
+   </div>
+  
+</div>
+<br>
+<div class="row">
+</div>
+
+<br>
+{{!-- -------------------->><<-------------------- --}}
+{{#if ShowBlock}}
+<div class="Block">
+   <div class="SSLC-Documents ">
+      SSC Documents
    </div>
    <hr>
-   <div class="row" style="">
-      <div class="col-md-3 colour-3" style="background:;text-align:center;">
-         <div class="w3-panel w3-card">
-            <h3>
-               <b>
-               Inbox
-               </b>
-            </h3>
-            {{#progress-circle
-            size="200"
-            strokeWidth="10"
-            percentage=series
-            as |elementId radius|
-            }}
-            {{#progress-circle/text
-            font-size="2rem"
-            font-family="inherit"
-            }}
-            {{series}}
-            {{/progress-circle/text}}
-            {{/progress-circle}}
-         </div>
-      </div>
-      <div class="col-md-3" style="background:;text-align:center;">
-         <div class="w3-panel w3-card">
-            <h3>
-               <b>
-               Uploaded Doc
-               </b>
-            </h3>
-            {{#progress-circle
-            size="200"
-            strokeWidth="10"
-            percentage="9"
-            as |elementId radius|
-            }}
-            {{#progress-circle/text
-            font-size="2rem"
-            font-family="inherit"
-            }}
-            9
-            {{/progress-circle/text}}
-            {{/progress-circle}}
-         </div>
-      </div>
-      <div class="col-md-3" style="text-align:center;">
-         <div class="w3-panel w3-card">
-            <h3>
-               <b>
-               {{#link-to 'userhallticket'}}
-               Hall Ticket 
-               {{/link-to}}
-               </b>
-            </h3>
-            {{#progress-circle
-            size="200"
-            strokeWidth="10"
-            percentage=DataLength
-            as |elementId radius|
-            }}
-            {{#progress-circle/text
-            font-size="2rem"
-            font-family="inherit"
-            }}
-            {{DataLength}}
-            {{/progress-circle/text}}
-            {{/progress-circle}}
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="w3-panel w3-card">
-            <h3>
-               <b style="text-align:center;margin:30%;">
-               Request
-               <br>
-               </b>
-            </h3>
-            {{#if (eq message "no request yet generated")}}
-            <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
-            {{else}}
-            <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
-            <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
-            {{/if}}
-            {{!-- <h4 style="color:green; text-align:center;margin:20%;"> No request yet</h4> --}}
-         </div>
-      </div>
-      {{!-- 
-      <div class="col-md-3">
-         <div class="w3-panel w3-card">
-            {{#link-to 'pulldocuments'}}
-            <h3>
-               <b>
-               Pull Documents
-               </b>
-            </h3>
-            <span class="fa fa-cloud-download fa-fa-style"></span>
-            {{/link-to}}
-         </div>
-      </div>
-      --}}
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Seat Number</th>
+            <th scope="col">Content-Hash</th>
+            <th scope="col">Date & Time</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<br>
+<div class="Block">
+   <div class="SSLC-Documents ">
+      HSC Documents
    </div>
-   <br>
-   <div class="row">
-   </div>
-   <br>
-   {{!-- -------------------->><<-------------------- --}}
-   {{#if ShowBlock}}
-   <div class="Block">
-      <div class="SSLC-Documents ">
-         SSC Documents
-      </div>
-      <hr>
-      <table class="table">
-         <thead>
-            <tr>
-               <th scope="col">Name</th>
-               <th scope="col">Seat Number</th>
-               <th scope="col">Content-Hash</th>
-               <th scope="col">Date & Time</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <br>
-   <div class="Block">
-      <div class="SSLC-Documents ">
-         HSC Documents
-      </div>
-      <hr>
-      <table class="table">
-         <thead>
-            <tr>
-               <th scope="col">Name</th>
-               <th scope="col">Seat Number</th>
-               <th scope="col">Content-Hash</th>
-               <th scope="col">Date & Time</th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   {{/if}}
-   {{!-- 
- c
-      --}}
-      {{!-- {{#each AllInfo as |data|}}
-      <div class="stepper">
-         <div class="stepper-steps">
-            {{#if (or data.status "processing" "verified by institute" "Hall ticket auto generation sucessfully done")}}
-            <div class="stepper-step stepper-step-isValid">
-               <div class="stepper-stepContent">
-                  <span class="stepper-stepMarker">1</span>Application Submit
-               </div>
-            </div>
-            {{else}}
-            <div class="stepper-step">
-               <div class="stepper-stepContent">
-                  <span class="stepper-stepMarker">1</span>Application Submit
-               </div>
-            </div>
-            {{/if}}
-            {{#if (or data.status "processing" "verified by institute" "Hall ticket auto generation sucessfully done")}}
-            <div class="stepper-step stepper-step-isValid">
-               <div class="stepper-stepContent">
-                  <span class="stepper-stepMarker">2</span>Institute verify
-               </div>
-            </div>
-            {{else}}
-            <div class="stepper-step">
-               <div class="stepper-stepContent">
-                  <span class="stepper-stepMarker">2</span>Institute verify
-               </div>
-            </div>
-            {{/if}}
-            {{#if (or data.status  "Hall ticket auto generation sucessfully done")}}
-            <div class="stepper-step">
-               <div class="stepper-stepContent stepper-step-isValid">
-                  <span class="stepper-stepMarker">3</span>Hall Ticket alloted
-               </div>
-            </div>
-            {{else}}
-            <div class="stepper-step">
-               <div class="stepper-stepContent">
-                  <span class="stepper-stepMarker">3</span>Hall Ticket alloted
-               </div>
-            </div>
-            {{/if}}
-         </div>
-      </div>
-      {{/each}} --}}
-      {{!-- 
-      <div class="container">
-         --}}
-          <b>Hall ticket generation progress status</b>
-           <br>
-         {{#each AllInfo as |data|}}
-       
-         <div class="stepwizard">
-            <div class="stepwizard-row setup-panel">
-              
-               <div class="stepwizard-step col-xs-3">
-                  {{#if (eq data.ApplicationStatus "processing")}}
-                  <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
-                  <p><strong style="color:darkgreen;">{{data.TypeOform}}&nbsp;Application form&nbsp;done</strong></p>
-                  
-                  {{else}}
-                  <a href="#step-1" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
-                 <p><strong style="color:">Application form</strong></p>
-                 {{/if}}
-                  
-               </div>
-               <div class="stepwizard-step col-xs-3">
-                  {{#if (eq data.InstitueStatus "verified by institute")}}
-                  <a href="#step-2" type="button" class="btn btn-success btn-circle" >2</a>
-                   <p><strong style="color:darkgreen;">Institute verification done</strong></p>
-                  {{else}}
-                  <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                   <p><strong style="color:">Institute verification</strong></p>
-                  {{/if}}  
-               </div>
-               <div class="stepwizard-step col-xs-3">
-                  {{#if (eq data.DivisionalStatus "Hall ticket auto generation sucessfully done" )}}
-                  <a href="#step-3" type="button" class="btn btn-success btn-circle">3</a>
-                  <p><strong style="color:darkgreen;">Divisional Board verification done</strong></p>
-                  {{else}}
-                  <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                   <p><strong style="color:">Divisional Board verification</strong></p>
-                  {{/if}}
-                 
-               </div>
-               <div class="stepwizard-step col-xs-3">
-                  {{#if (eq data.DivisionalStatus  "Hall ticket auto generation sucessfully done")}}
-                  <a href="#step-4" type="button" class="btn btn-success btn-circle">4</a>
-                  <p><strong style="color:darkgreen;">{{data.status}}</strong></p>
-                  {{else}}
-                  <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
-                   <p><strong style="color:;">Hall Ticket  Generation</strong></p>
-                  {{/if}}
-                 
-               </div>
-            </div>
-         </div>
+   <hr>
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Seat Number</th>
+            <th scope="col">Content-Hash</th>
+            <th scope="col">Date & Time</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+{{/if}}
 
-         {{/each}}
+   <div class="w3-panel w3-card">
+      <b>Hall ticket generation progress status</b>
+      {{#each AllInfo as |data|}}
+      <div class="mdl-card mdl-shadow--2dp">
+         <div class="mdl-stepper-horizontal-alternative">
+            <div class="mdl-stepper-step active-step ">
+               <div class="mdl-stepper-circle1"></div>
+               <div class="mdl-stepper-title"></div>
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+            <div class="mdl-stepper-step active-step ">
+               <div class="mdl-stepper-title2">{{data.TypeOform}}&nbsp;Application</div>
+               <div class="mdl-stepper-circle"></div>
+               {{#if (eq data.ApplicationStatus "processing")}}
+               <div class="vl"></div>
+               <div class="circle">
+                  <div id="request-details">
+                     <p><strong style="color:darkgreen;"> Accepted {{data.TypeOform}}&nbsp;Application form&nbsp;done</strong></p>
+                  </div>
+               </div>
+               {{else}}
+               <div class="vl"></div>
+               <div class="circle" >
+                  <div id="request-details">
+                     Not submitted
+                  </div>
+               </div>
+               {{/if}}
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+            <div class="mdl-stepper-step active-step ">
+               <div class="upper-line">
+                  {{#if (eq data.InstitueStatus "verified by institute")}}
+                  <div class="this-circle2">
+                     <div id="request-details">
+                        <p><strong style="color:darkgreen;">Accepted</strong></p>
+                     </div>
+                  </div>
+                  <div class="vl2"></div>
+                  {{else}}
+                  <div class="this-circle2">
+                     <div id="request-details"> Institute verification not done</div>
+                  </div>
+                  <div class="vl2"></div>
+                  {{/if}}
+               </div>
+               <div class="mdl-stepper-circle"></div>
+               <div class="mdl-stepper-title">Institute Approval</div>
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+            <div class="mdl-stepper-step active-step ">
+               <div class="mdl-stepper-title2" style="margin-left:20px">Divisional Board Approval</div>
+               {{#if (eq data.DivisionalStatus "Hall ticket auto generation sucessfully done" )}}
+               <div class="mdl-stepper-circle"></div>
+               {{!-- 
+               <div class="po-style">
+                  --}}
+                  <div class="vl"></div>
+                  <div class="circle">
+                     <div id="request-details">
+                        <p><strong style="color:darkgreen;">Divisional Board verification done</strong></p>
+                     </div>
+                  </div>
+                  {{else}}
+                  <div class="vl"></div>
+                  <div class="circle">
+                     <div id="request-details">No Approval from Divisional Board </div>
+                  </div>
+                  {{!-- 
+               </div>
+               --}}
+               {{/if}}
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+            <div class="mdl-stepper-step active-step ">
+               <div class="upper-line2">
+                  {{#if (eq data.DivisionalStatus  "Hall ticket auto generation sucessfully done")}}
+                  <div class="this-circle3">
+                     <div id="request-details">
+                        <p><strong style="color:darkgreen;">Hall Ticket Generated</strong></p>
+                     </div>
+                  </div>
+                  <div class="vl2"></div>
+                  {{else}}
+                  <div class="this-circle3">
+                     <div id="request-details">Hall Ticket Not Generated</div>
+                  </div>
+                  <div class="vl2"></div>
+                  {{/if}}
+               </div>
+               <div class="mdl-stepper-circle"></div>
+               <div class="mdl-stepper-title">Hall Ticket Generation</div>
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+            <div class="mdl-stepper-step active-step ">
+               <div class="mdl-stepper-circle2"></div>
+               <div class="mdl-stepper-title"></div>
+               <div class="mdl-stepper-bar-left"></div>
+               <div class="mdl-stepper-bar-right"></div>
+            </div>
+         </div>
+      </div>
+      {{/each}}
+      <br>
+   </div>
+   <br/>
    <br>
+   {{/if}}
 </div>

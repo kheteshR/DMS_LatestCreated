@@ -52,7 +52,7 @@ export default Controller.extend({
                 "userId":Uid,
                 "ResidentialAddr":ResidentialAddr,
                 "uniqid":uniqid,
-                "status":"processing",
+                "status":"Processing",
                 "HallCenter":"",
                 "Seat_Number":"",
                 "message":""
