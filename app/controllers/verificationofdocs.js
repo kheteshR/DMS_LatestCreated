@@ -3,7 +3,7 @@ import Controller from '@ember/controller';
 export default Controller.extend({
     loginactive: true,
     registeractive:true,
-    ListDocument:["SSC Marksheet","HSC Marksheet"],
+    ListDocument:["SSC","HSC"],
     // session: Ember.inject.service('session'),
     actions: {
         verifification:function(){

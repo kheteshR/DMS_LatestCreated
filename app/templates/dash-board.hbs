@@ -29,9 +29,9 @@
    {{/link-to}}
    <br>
    <br>
-   {{#link-to 'uploaddocument'}}
-   <button class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;">Upload Documents</button>
-   {{/link-to}}
+   {{!-- {{#link-to 'uploaddocument'}} --}}
+   <button class="btn btn-primary Rectangle-2-Copy-8" style="border-color:;border-color:;border:0px;border-radius:0px;" {{action "toggle"}}>Upload Documents</button>
+   {{!-- {{/link-to}} --}}
    <br>
    <br>
    {{#link-to 'pulldocuments'}}
@@ -46,224 +46,243 @@
    <hr>
 </div>
 <div class="main">
-<br>
-
-{{#if RequestForDuplication}}
-<h2><b>Request For Duplicate Marksheet</b></h2>
-<div class="container-fluid login-container">
    <br>
-   <div class="row">
-      <div class="col-md-6 col-md-offset-6">
-         <div class="panel panel-login rcorners1">
-            <div class="panel-heading">
-               <div class="row">
-                     <a href="#" id="login-form-link" >Apply For Duplicate Marksheet</a>
-               </div>
-               <hr>
-            </div>
-            <div class="panel-body">
-               <div class="row">
-                
-                  {{#if showAlert}}
-                  <div class="alert alert-success alert-dismissible">
-                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                     <strong>Duplicate Marksheet with digital signature fetched successfully!</strong>
+   {{#if ShowUploadDocument}}
+   <h2><b><em>Upload Your Additional Document Here</em></b></h2>
+   <div class="container-fluid request-container">
+      <div class="row">
+         <div class="col-md-6 col-md-offset-6">
+            <div class="panel panel-login rcorners1">
+               <div class="panel-heading">
+                  <div class="row">
+                     <a href="#" id="login-form-link" >Upload Documets</a>
                   </div>
-                  {{/if}}
-                  <div class="col-lg-12">
-               
-                     <label>Name Of Candidate Same As Marksheet</label>								
-                     {{input type="text"  class="form-group form-control" placeholder="Name of Candidate" value=name}}								
-                     <label>Enter Seat Number</label>
-                     {{input type="text"  class="form-group form-control" placeholder="SeatNumber" value=SeatNumber}}
-                     <label>Select Marksheet Type</label>
-                     {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
-                     <br>
-                     
-            <label>Select Exam Session:</label>
-            {{select-component  class="form-control border" listitem=ListDocument1 selecteditemlist=propertyType1 }}
-              <br>
-                     <div class="form-group">
-                        <div class="row">
-                           <div class="col-sm-6 col-sm-offset-3">
-                              <input type="button" class="form-control btn btn-login" value="Submit Details" {{action "submit"}}/>										
-                           </div>
-                        </div>
+                  <hr>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+                     {{!-- {{#if showAlert}}
+                     <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Duplicate Marksheet with digital signature fetched successfully!</strong>
                      </div>
-                     <div class="form-group">
-                        <div class="row">
-                           <div class="col-lg-12">
-                              <div class="text-center">
-                                 {{!-- <a href="" tabindex="5" class="forgot-password">Forgot Password?</a> --}}
-                              </div>
-                           </div>
-                        </div>
+                     {{/if}} --}}
+                     <div class="col-lg-12">
+                        <label>Select Marksheet Type</label>
+                        {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
+                        <br>
+                        {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+                        <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Documents</a>
+                        {{/pl-uploader}}
+                      
                      </div>
-                    
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-</div>
-{{else}}
-<div class="row">
-   <div class="col-lg-6">
-      <div style="	width: 157px;	height: 40px;	border-radius: 4px;" ><b style="color:blue">Hello&nbsp;{{walletname}}</b></div>
-   </div>
-   <div class="col-lg-6">
-      {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
-   </div>
-</div>
-<hr>
-<div class="row" style="">
-   <div class="col-md-3 colour-3" style="background:;text-align:center;">
-      <div class="w3-panel w3-card">
-         <h3>
-            <b>
-            Inbox
-            </b>
-         </h3>
-         {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage=series
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         color="deepskyblue"
-         font-family="inherit"
-         }}
-         {{series}}
-         {{/progress-circle/text}}
-         {{/progress-circle}}
-       
+   {{/if}}
+   {{#if RequestForDuplication}}
+   <h2><b><em>Request For Duplicate Marksheet</em></b></h2>
+   <div class="container-fluid request-container">
+      <div class="row">
+         <div class="col-md-6 col-md-offset-6">
+            <div class="panel panel-login rcorners1">
+               <div class="panel-heading">
+                  <div class="row">
+                     <a href="#" id="login-form-link" >Apply For Duplicate Marksheet</a>
+                  </div>
+                  <hr>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+                     {{#if showAlertForDuplicate}}
+                     <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Request For Duplicate Marksheet Sent</strong>
+                     </div>
+                     {{/if}}
+                     <div class="col-lg-12">
+                        <label>Name Of Candidate Same As Marksheet</label>								
+                        {{input type="text"  class="form-group form-control" placeholder="Name of Candidate" value=name}}								
+                        <label>Enter Seat Number</label>
+                        {{input type="text"  class="form-group form-control" placeholder="SeatNumber" value=SeatNumber}}
+                        <label>Add Total Marks</label>
+                        {{input type="text"  class="form-group form-control" placeholder="Please add your total marks here" value=TotalMarks}}
+                        <label>Select Marksheet Type</label>
+                        {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
+                        <br>
+                        <label>Select Exam Session:</label>
+                        {{select-component  class="form-control border" listitem=ListDocument1 selecteditemlist=Session }}
+                        <br>
+                        <div class="form-group">
+                           <div class="row">
+                              <div class="col-sm-6 col-sm-offset-3">
+                                 <input type="button" class="form-control btn btn-login" value="Submit Details" {{action "DuplicationDataSubmit"}}/>										
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
-   <div class="col-md-3" style="background:;text-align:center;">
-      <div class="w3-panel w3-card">
-         <h3>
-            <b>
-            Uploaded Doc
-            </b>
-         </h3>
-         {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage="9"
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         font-family="inherit"
-         }}
-         9
-         {{/progress-circle/text}}
-         {{/progress-circle}}
+   {{/if}}
+   {{#if DashBoardShow}}
+   <div class="row">
+      <div class="col-lg-6">
+         <div style="	width: 157px;	height: 40px;	border-radius: 4px;" ><b style="color:blue">Hello&nbsp;{{walletname}}</b></div>
       </div>
-   </div>
-   <div class="col-md-3" style="text-align:center;">
-      <div class="w3-panel w3-card">
-         <h3>
-            <b>
-            {{#link-to 'userhallticket'}}
-            Hall Ticket 
-            {{/link-to}}
-            </b>
-         </h3>
-         {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage=DataLength
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         font-family="inherit"
-         }}
-         {{DataLength}}
-         {{/progress-circle/text}}
-         {{/progress-circle}}
+      <div class="col-lg-6">
+         {{input type="text" class="Search-block" style="height:40px;" value=search placeholder="search" class="search"}}
       </div>
-   </div>
-   <div class="col-md-3">
-      <div class="w3-panel w3-card">
-         <h3>
-            <b style="text-align:center;margin:30%;">
-            Request
-            <br>
-            </b>
-         </h3>
-         {{#if (eq message "no request yet generated")}}
-         <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
-         {{else}}
-         <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
-         <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
-         {{/if}}
-      </div>
-   </div>
-  
-</div>
-<br>
-<div class="row">
-</div>
-
-<br>
-{{!-- -------------------->><<-------------------- --}}
-{{#if ShowBlock}}
-<div class="Block">
-   <div class="SSLC-Documents ">
-      SSC Documents
    </div>
    <hr>
-   <table class="table">
-      <thead>
-         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Seat Number</th>
-            <th scope="col">Content-Hash</th>
-            <th scope="col">Date & Time</th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-         </tr>
-      </tbody>
-   </table>
-</div>
-<br>
-<div class="Block">
-   <div class="SSLC-Documents ">
-      HSC Documents
+   <div class="row" style="">
+      <div class="col-md-3 colour-3" style="background:;text-align:center;">
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+               Inbox
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage=series
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            color="deepskyblue"
+            font-family="inherit"
+            }}
+            {{series}}
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
+      </div>
+      <div class="col-md-3" style="background:;text-align:center;">
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+               Uploaded Doc
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage="9"
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            font-family="inherit"
+            }}
+            9
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
+      </div>
+      <div class="col-md-3" style="text-align:center;">
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+               {{#link-to 'userhallticket'}}
+               Hall Ticket 
+               {{/link-to}}
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage=DataLength
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            font-family="inherit"
+            }}
+            {{DataLength}}
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
+      </div>
+      <div class="col-md-3">
+         <div class="w3-panel w3-card">
+            <h3>
+               <b style="text-align:center;margin:30%;">
+               Request
+               <br>
+               </b>
+            </h3>
+            {{#if (eq message "no request yet generated")}}
+            <div class="a lable-align content"><b style="color:green">{{message}}</b></div>
+            {{else}}
+            <div class="a lable-align"><b>{{TotalRequestLength}}</b></div>
+            <h4 style="color:green; text-align:center;">{{TotalRequestLength}} new request</h4>
+            {{/if}}
+         </div>
+      </div>
    </div>
-   <hr>
-   <table class="table">
-      <thead>
-         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Seat Number</th>
-            <th scope="col">Content-Hash</th>
-            <th scope="col">Date & Time</th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-         </tr>
-      </tbody>
-   </table>
-</div>
-{{/if}}
-
+   <br>
+   <div class="row"></div>
+   <br>
+   {{!-- -------------------->><<-------------------- --}}
+   {{#if ShowBlock}}
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         SSC Documents
+      </div>
+      <hr>
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">Name</th>
+               <th scope="col">Seat Number</th>
+               <th scope="col">Content-Hash</th>
+               <th scope="col">Date & Time</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <br>
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         HSC Documents
+      </div>
+      <hr>
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">Name</th>
+               <th scope="col">Seat Number</th>
+               <th scope="col">Content-Hash</th>
+               <th scope="col">Date & Time</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   {{/if}}
    <div class="w3-panel w3-card">
       <b>Hall ticket generation progress status</b>
       {{#each AllInfo as |data|}}
@@ -277,8 +296,9 @@
             </div>
             <div class="mdl-stepper-step active-step ">
                <div class="mdl-stepper-title2">{{data.TypeOform}}&nbsp;Application</div>
+               {{!-- {{data.ApplicationStatus }} --}}
                <div class="mdl-stepper-circle"></div>
-               {{#if (eq data.ApplicationStatus "processing")}}
+               {{#if (eq data.ApplicationStatus "Processing")}}
                <div class="vl"></div>
                <div class="circle">
                   <div id="request-details">
@@ -321,23 +341,17 @@
                <div class="mdl-stepper-title2" style="margin-left:20px">Divisional Board Approval</div>
                {{#if (eq data.DivisionalStatus "Hall ticket auto generation sucessfully done" )}}
                <div class="mdl-stepper-circle"></div>
-               {{!-- 
-               <div class="po-style">
-                  --}}
-                  <div class="vl"></div>
-                  <div class="circle">
-                     <div id="request-details">
-                        <p><strong style="color:darkgreen;">Divisional Board verification done</strong></p>
-                     </div>
+               <div class="vl"></div>
+               <div class="circle">
+                  <div id="request-details">
+                     <p><strong style="color:darkgreen;">Divisional Board verification done</strong></p>
                   </div>
-                  {{else}}
-                  <div class="vl"></div>
-                  <div class="circle">
-                     <div id="request-details">No Approval from Divisional Board </div>
-                  </div>
-                  {{!-- 
                </div>
-               --}}
+               {{else}}
+               <div class="vl"></div>
+               <div class="circle">
+                  <div id="request-details">No Approval from Divisional Board </div>
+               </div>
                {{/if}}
                <div class="mdl-stepper-bar-left"></div>
                <div class="mdl-stepper-bar-right"></div>

@@ -43,7 +43,6 @@
 <label class="formlab" style="color:black;" for="usr">Name of Document Owner</label>
 {{input type="text"  class="form-control" value=name placeholder="Enter Name"}}
 <br>
-
    {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
    <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">&nbsp;Click Here To Upload Documents</a>
    {{/pl-uploader}}
@@ -96,6 +95,7 @@
 {{/if}}
 </div>
 <br>
+
 
 
  

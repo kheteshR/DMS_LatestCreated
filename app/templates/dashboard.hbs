@@ -6,13 +6,15 @@
    <div class="Pending" style="">Pending</div>
    <div class="Pending-1" style="">Inbox &nbsp;&nbsp; {{UploadLength}}</div>
    <div class="Pending-2" style="">Request</div>
-   {{#link-to 'statusupload'}} <div class="Pending-3" style="">Host Documents</div>{{/link-to}}
+   {{#link-to 'statusupload'}} 
+   <div class="Pending-3" style="">Host Documents</div>
+   {{/link-to}}
    <br>
    <hr>
    <div class="Documents">
       Documents
    </div>
-    {{#link-to 'statusupload'}}
+   {{#link-to 'statusupload'}}
    <button type="button" class="btn btn-primary Rectangle-2-Copy-7">View All Documents</button>
    {{/link-to}}
    <br>
@@ -29,73 +31,74 @@
       </div>
    </div>
    <hr>
-   
    <div class="row" style="background-color:">
       <div class="col-md-4 colour-3" style="background:;text-align:center;">
-          <div class="w3-panel w3-card">  
-         <h3>
-            <b>
-            Inbox
-            </b>
-         </h3>
-         {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage="20"
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         font-family="inherit"
-         }}
-         {{UploadLength}}
-         {{/progress-circle/text}}
-         {{/progress-circle}}
-      </div>
-      </div>
-      <div class="col-md-4" style="background:;text-align:center;">
-          <div class="w3-panel w3-card">
-         <h3>
-            <b>
-            Request for update 
-            </b>
-         </h3>
-         {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage="9"
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         font-family="inherit"
-         }}
-         9
-         {{/progress-circle/text}}
-         {{/progress-circle}}
-      </div>
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+               Inbox
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage="20"
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            font-family="inherit"
+            }}
+            {{UploadLength}}
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
       </div>
       <div class="col-md-4" style="background:;text-align:center;">
-          <div class="w3-panel w3-card">
-         <h3>
-            <b>
-            Hall Tickets
-            </b>
-         </h3>
-          {{#progress-circle
-         size="200"
-         strokeWidth="10"
-         percentage=ArrayLength
-         as |elementId radius|
-         }}
-         {{#progress-circle/text
-         font-size="2rem"
-         font-family="inherit"
-         }}
-         {{ArrayLength}}
-         {{/progress-circle/text}}
-         {{/progress-circle}}
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+                   {{#link-to "digitalsignature"}}
+               Duplicate marksheet
+               {{/link-to}}
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage=RequestForDigital
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            font-family="inherit"
+            }}
+            {{RequestForDigital}}
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
       </div>
+      <div class="col-md-4" style="background:;text-align:center;">
+         <div class="w3-panel w3-card">
+            <h3>
+               <b>
+               Hall Tickets
+               </b>
+            </h3>
+            {{#progress-circle
+            size="200"
+            strokeWidth="10"
+            percentage=ArrayLength
+            as |elementId radius|
+            }}
+            {{#progress-circle/text
+            font-size="2rem"
+            font-family="inherit"
+            }}
+            {{ArrayLength}}
+            {{/progress-circle/text}}
+            {{/progress-circle}}
+         </div>
       </div>
    </div>
    {{!-- -------------------->><<-------------------- --}}
@@ -106,20 +109,10 @@
       <hr>
       <div class="row">
          <label style="padding-left:4%;">Total Document : {{SSCdataLength}} SSC Marksheet Hosted</label>
-       </div>
-       <div class="row">
-         <label style="padding-left:4%;">Total Document : {{HSCdataLength}} HSC Marksheet Hosted</label>
       </div>
-   </div>
-   
-   {{!-- <div class="Block">
-      <div class="SSLC-Documents ">
-         HSC Documents
-      </div>
-      <hr>
       <div class="row">
          <label style="padding-left:4%;">Total Document : {{HSCdataLength}} HSC Marksheet Hosted</label>
       </div>
-   </div> --}}
+   </div>
    <br>
 </div>

@@ -34,6 +34,7 @@ Router.map(function() {
   this.route('History');
   this.route('verificationofdocs');
   this.route('test');
+  this.route('digitalsignature');
 });
 
 export default Router;

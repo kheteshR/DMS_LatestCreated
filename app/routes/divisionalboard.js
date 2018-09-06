@@ -10,8 +10,7 @@ export default Route.extend({
             "TypeOform":"HSC"
         }
         var _this=this
-        // http://localhost:3007/LengthOfRecordsHSC
-        // http://localhost:3007/LengthOfRecordsSSC
+   
         $.ajax({
             type: "POST",
             url: 'http://localhost:3007/RetriveAllForm',

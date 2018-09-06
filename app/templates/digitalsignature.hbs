@@ -1,0 +1,72 @@
+{{partial 'navbar'}}
+<div class="sidebar">
+   <div class="bar-1">
+      <div class="All-Documents" >All Documents</div>
+   </div>
+   <div class="Pending" style="">Pending</div>
+   <div class="Pending-1" style="">Inbox &nbsp;&nbsp; {{UploadLength}}</div>
+   <div class="Pending-2" style="">Request</div>
+   {{#link-to 'statusupload'}} 
+   <div class="Pending-3" style="">Host Documents</div>
+   {{/link-to}}
+   <br>
+   <hr>
+   <div class="Documents">
+      Documents
+   </div>
+   {{#link-to 'statusupload'}}
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7">View All Documents</button>
+   {{/link-to}}
+   <br>
+   <hr>
+</div>
+<div class="main">
+   <br>
+   <h2><b><em>All Request for duplicate marksheets</em></b></h2>
+   <div class="row">
+       <table id="fresh-table" class="table">
+           {{#each RequestForDigital as |data index|}}
+         <thead>
+            <th>Serial No.</th>
+            <th>Request Id:</th>
+            <th>User Id:</th>
+            <th>Status:</th>
+            <th>Time Stamp:</th>
+            <th>Exam Session:</th>
+            <th>Form Type:</th>
+            <th>Total Marks:</th>
+         </thead>
+         <tbody>
+            <tr>
+               <td>{{add index 1}}</td>
+               <td style="color:green">{{data._id}}</td>
+               <td>{{data.userId}}</td>
+               <td>{{data.DuplicateRequestStatus}}</td>
+               <td>{{data.TypeOform}}</td>
+               <td>{{data.Request_At}}</td>
+                <td>{{data.Session}}</td>
+               <td>{{data.TotalMarks}}</td>
+            </tr>
+         </tbody>
+         {{/each}}
+      </table>
+      <br>
+      <p>
+         <button class="btn btn-primary" type="button" {{action "Sign" }}>
+         Click here to sign digitally & generate duplicate marksheet
+         </button>
+         <br/>
+         <br/>
+            {{#if showAlertForDuplicate}}
+                     <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Duplicate marksheet generated with Digital signature</strong>
+                     </div>
+                     {{/if}}
+      </p>
+     
+   </div>
+
+  
+   <br>
+</div>

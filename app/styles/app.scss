@@ -141,6 +141,9 @@
 	text-align: center;
 	margin-left:10%;
 	}
+	.request-container {
+		padding-top: 20px;
+	}
 	.text{
 	text-align:center;
 	}
@@ -271,8 +274,6 @@
 	border-radius: 2px;
 	background-color: #4990e2;
   }
-  
-  
   .New {
 	width: 297px;
 	height: 59px;
@@ -299,6 +300,7 @@
 	height: 53px;
 	margin-top:95px;
 	margin-left:280px;
+	// text-align:center;
 	font-family: ProximaNova;
 	font-size: 38px;
 	font-weight: normal;

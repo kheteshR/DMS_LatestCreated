@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    //http://localhost:3007/HallTicketForUser
+    
     model(){
     var walletname=this.controllerFor('Home_Page').set('walletname',walletname)
     console.log("walletname====>>dashboard",walletname)
@@ -10,6 +10,24 @@ export default Route.extend({
     var JsonData={
 
     }
+    const Request={
+        "DuplicateRequestStatus":"Request Initiated by user"
+    }
+    console.log("i am in digital sign=======>",Request)
+    
+    $.ajax({
+        type: "POST",
+        url: ' http://localhost:3007/DuplicateMarksheetRequestCount',
+        data: JSON.stringify(Request),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+        console.log("Request of result=====>>",response);
+        _this.controllerFor('dashboard').set('RequestForDigital',response.result.length)
+        // _this.controllerFor('History').set('Id',response.result[0].id);
+
+        }
+    })
     $.ajax({
         type: "POST",
         url: 'http://localhost:3007/RetriveAllForm',
@@ -43,7 +61,7 @@ export default Route.extend({
         contentType: "application/json",
         dataType: "json",
         success: function(response) {
-        console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+        console.log("Result===== dashboard=====>>SSC======",response.Result.length);
         _this.controllerFor('dashboard').set('SSCdataLength',response.Result.length);
        
 
@@ -57,7 +75,7 @@ export default Route.extend({
         contentType: "application/json",
         dataType: "json",
         success: function(response) {
-        console.log("Result===== dashboard=====>>dashboard",response.Result.length);
+        console.log("Result===== dashboard=====>>HSC=========",response.Result.length);
         _this.controllerFor('dashboard').set('HSCdataLength',response.Result.length);
        
 
