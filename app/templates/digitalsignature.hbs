@@ -24,8 +24,8 @@
    <br>
    <h2><b><em>All Request for duplicate marksheets</em></b></h2>
    <div class="row">
-       <table id="fresh-table" class="table">
-           {{#each RequestForDigital as |data index|}}
+      <table id="fresh-table" class="table">
+         {{#each RequestForDigital as |data index|}}
          <thead>
             <th>Serial No.</th>
             <th>Request Id:</th>
@@ -44,7 +44,7 @@
                <td>{{data.DuplicateRequestStatus}}</td>
                <td>{{data.TypeOform}}</td>
                <td>{{data.Request_At}}</td>
-                <td>{{data.Session}}</td>
+               <td>{{data.Session}}</td>
                <td>{{data.TotalMarks}}</td>
             </tr>
          </tbody>
@@ -57,16 +57,13 @@
          </button>
          <br/>
          <br/>
-            {{#if showAlertForDuplicate}}
-                     <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Duplicate marksheet generated with Digital signature</strong>
-                     </div>
-                     {{/if}}
+         {{#if showAlertForDuplicate}}
+      <div class="alert alert-success alert-dismissible">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <strong>Duplicate marksheet generated with Digital signature</strong>
+      </div>
+      {{/if}}
       </p>
-     
    </div>
-
-  
    <br>
 </div>

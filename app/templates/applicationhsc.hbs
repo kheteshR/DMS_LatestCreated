@@ -2,22 +2,21 @@
 <div class="jumbotron">
    <h2>All Application form </h2>
    <br>
-      {{#if TxShowAlert}}
-      <div class="alert alert-success alert-dismissible">
-         <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <strong>Application id:{{_id}}</strong>
-         <strong>Success!</strong>your transaction id is&nbsp;<b style="color:blue">{{TxHash}}</b>.<br>
-         <strong>Form submitted back to institute successfully.</strong>
-      </div>
-      {{/if}}
-        {{#if showAlert}}
-      <div class="alert alert-success alert-dismissible">
-         <button type="button" class="close" data-dismiss="alert">&times;</button>
-         <strong>Success!</strong>Hall ticket auto generated.<br>
-         <strong>Please check your hall ticket repository.</strong>
-      </div>
-      {{/if}}
-      
+   {{#if TxShowAlert}}
+   <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Application id:{{_id}}</strong>
+      <strong>Success!</strong>your transaction id is&nbsp;<b style="color:blue">{{TxHash}}</b>.<br>
+      <strong>Form submitted back to institute successfully.</strong>
+   </div>
+   {{/if}}
+   {{#if showAlert}}
+   <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong>Hall ticket auto generated.<br>
+      <strong>Please check your hall ticket repository.</strong>
+   </div>
+   {{/if}}
    {{#each AllInfo as |data|}}
    <table class="">
       <thead>
@@ -46,18 +45,16 @@
       <div class="panel-body">
          <b>Application Id:</b>
          <div class="row">
-              <div class="col-lg-6">
-         <p style="color:green">{{data._id}}</p>
-         </div>
             <div class="col-lg-6">
-              {{#if data.message}}
-              <div class="alert alert-info">
-  <strong>message from institution:</strong>{{data.message}}.
-</div>
-{{/if}}
-              
+               <p style="color:green">{{data._id}}</p>
             </div>
-          
+            <div class="col-lg-6">
+               {{#if data.message}}
+               <div class="alert alert-info">
+                  <strong>message from institution:</strong>{{data.message}}.
+               </div>
+               {{/if}}
+            </div>
          </div>
          <hr>
       </div>
@@ -84,28 +81,25 @@
       <br>
       <div class="row">
          <div class="col-lg-6">
-           {{#if (eq data.status "Rejected")}}
+            {{#if (eq data.status "Rejected")}}
             {{!-- &nbsp;{{textarea value=message disabled="IsRejected" placeholder="please comment your reason for rejection..."}} --}}
             &nbsp; &nbsp;<button type="button" class="btn btn-danger" disabled="IsRejected"  {{action "Update" data.userId data._id data.TypeOform}}>Admission card Reject</button>
-         {{else}}
-          &nbsp;{{textarea value=message placeholder="please comment your reason for rejection..."}}
+            {{else}}
+            &nbsp;{{textarea value=message placeholder="please comment your reason for rejection..."}}
             &nbsp; &nbsp;<button type="button" class="btn btn-danger"  {{action "Update" data.userId data._id data.TypeOform}}>Admission card Reject</button>
-         {{/if}}
+            {{/if}}
          </div>
          <div class="col-lg-6">
             {{#if (eq data.status "Hall ticket auto generation sucessfully done")}}
             &nbsp; &nbsp;<button type="button" disabled={{isCancelled}} class="btn "{{action "Done" data.userId data.TypeOform}}>Process Application Form</button>
-           <b style="color:Tomato;"> Already Done</b>
+            <b style="color:Tomato;"> Already Done</b>
             {{else}}
             &nbsp; &nbsp;<button type="button" class="btn "{{action "Done" data._id data.userId data.TypeOform}}>Process for generate Admission card</button>
             {{/if}}
          </div>
       </div>
       <br>
-       </div>
+   </div>
    {{/each}}
-   
-  
- 
    <br>
 </div>

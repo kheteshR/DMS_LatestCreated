@@ -48,7 +48,11 @@
 <div class="main">
    <br>
    {{#if ShowUploadDocument}}
+   <div style="text-align:center;">
    <h2><b><em>Upload Your Additional Document Here</em></b></h2>
+   </div>
+   <br/>
+   <br/>
    <div class="container-fluid request-container">
       <div class="row">
          <div class="col-md-6 col-md-offset-6">
@@ -61,12 +65,7 @@
                </div>
                <div class="panel-body">
                   <div class="row">
-                     {{!-- {{#if showAlert}}
-                     <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Duplicate Marksheet with digital signature fetched successfully!</strong>
-                     </div>
-                     {{/if}} --}}
+                 
                      <div class="col-lg-12">
                         <label>Select Marksheet Type</label>
                         {{select-component  class="form-control border" listitem=ListDocument selecteditemlist=propertyType }}
@@ -83,8 +82,11 @@
       </div>
    </div>
    {{/if}}
+  
    {{#if RequestForDuplication}}
+   <div style="text-align:center;">
    <h2><b><em>Request For Duplicate Marksheet</em></b></h2>
+   </div>
    <div class="container-fluid request-container">
       <div class="row">
          <div class="col-md-6 col-md-offset-6">
@@ -130,7 +132,75 @@
          </div>
       </div>
    </div>
+   {{/if}}   
+   {{#if IsUserRepository}}
+
+<br>
+<h2><b>Your Documents Repository</b></h2>
+<hr>
+<br>
+  <div class="w3-panel w3-card">
+ <div class="Block">
+      <div class="SSLC-Documents ">
+         SSC Documents      
+      </div>
+      <hr>
+    <table class="">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Seat Number</th>
+      <th scope="col">Content-Hash</th>
+      <th scope="col">Date & Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{name}}</td>
+      <td>{{SeatNumber}}</td>
+      <td><a href="http://127.0.0.1:8080/ipfs/{{ContentHash}}">http://127.0.0.1:8080/ipfs/{{ContentHash}}</a></td>
+      <td>{{TimeStamp}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+</div>
+<br>
+<br>
+</div>
+   <br>
+     <div class="w3-panel w3-card">
+   <div class="Block">
+      <div class="SSLC-Documents ">
+         HSC Documents
+      </div>
+      <hr>
+        <table class="">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Seat Number</th>
+      <th scope="col">Content-Hash</th>
+      <th scope="col">Date & Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+
    {{/if}}
+  
    {{#if DashBoardShow}}
    <div class="row">
       <div class="col-lg-6">
@@ -231,7 +301,8 @@
    <br>
    <div class="row"></div>
    <br>
-   {{!-- -------------------->><<-------------------- --}}
+   
+   
    {{#if ShowBlock}}
    <div class="Block">
       <div class="SSLC-Documents ">
@@ -296,7 +367,6 @@
             </div>
             <div class="mdl-stepper-step active-step ">
                <div class="mdl-stepper-title2">{{data.TypeOform}}&nbsp;Application</div>
-               {{!-- {{data.ApplicationStatus }} --}}
                <div class="mdl-stepper-circle"></div>
                {{#if (eq data.ApplicationStatus "Processing")}}
                <div class="vl"></div>

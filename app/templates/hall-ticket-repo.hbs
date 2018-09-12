@@ -1,12 +1,11 @@
 {{partial 'navbar'}}
 <div class="jumbotron">
-  
-        {{#each AllInfo as |data|}}
-       <div class="panel panel-primary">
+   {{#each AllInfo as |data|}}
+   <div class="panel panel-primary">
       <div class="panel-heading">
-          <h4><b>Hall Ticket</b></h4>
+         <h4><b>Hall Ticket</b></h4>
       </div>
-       <style>
+      <style>
          .flex-container { 
          width:100%;
          height: 650px;
@@ -40,12 +39,9 @@
                <div class="col-lg-6" style="background-color:">
                   <h2><b>Maharashtra State Board Secondary and Higher Secondary Education,Pune</b></h2>
                </div>
-                <div class="col-lg-4" style="background-color:">
-               
-  <img class="Fix-Image" src="assets/download.png" alt="Card image">
- 
-
-            </div>
+               <div class="col-lg-4" style="background-color:">
+                  <img class="Fix-Image" src="assets/download.png" alt="Card image">
+               </div>
             </div>
             <div class="row">
                <h3><b>ADMISSION CARD,{{data.TypeOform}} EXAM</b></h3>
@@ -103,30 +99,29 @@
          </div>
       </div>
       <br>
-      {{!-- <div class="panel-body">
-          <div class="row">
-         <div class="col-md-4"><b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b></div>
-          </div>
-          <hr>
-          <div class="row">
-          <div class="col-md-4"><b>Full Name:</b><b style="color:darkgreen">{{data.candiName}}</b></div>
-          <div class="col-md-4"><b>Father Name:</b><b style="color:darkgreen">{{data.fatherName}}</b></div>
-          <div class="col-md-4"><b>Center alloted at:</b><b style="color:darkgreen">{{data.HallCenter}}</b></div>
-          </div>
-          <div class="row">
-          <div class="col-md-4"><b>Mother Name:</b><b style="color:darkgreen">{{data.motherName}}</b></div>
-          <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{moment-format data.dob  'DD/MM/YYYY'}} </b></div>
-          <div class="col-md-4"><b>Mobile Number:</b><b style="color:darkgreen">{{data.MobNo}}</b></div>
-          </div>
-          <div class="row">
-                   <div class="col-md-6"><b>Admission card:</b><b style="color:darkgreen">{{data.TypeOform}}</b></div>
-              </div>
-          </div> --}}
-    </div>
-        {{!-- &nbsp;&nbsp;<b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b> --}}
-          {{/each}}
-
-
-  <button {{action "save"}}>Download PDF</button>
-
-    </div>
+      {{!-- 
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-4"><b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b></div>
+         </div>
+         <hr>
+         <div class="row">
+            <div class="col-md-4"><b>Full Name:</b><b style="color:darkgreen">{{data.candiName}}</b></div>
+            <div class="col-md-4"><b>Father Name:</b><b style="color:darkgreen">{{data.fatherName}}</b></div>
+            <div class="col-md-4"><b>Center alloted at:</b><b style="color:darkgreen">{{data.HallCenter}}</b></div>
+         </div>
+         <div class="row">
+            <div class="col-md-4"><b>Mother Name:</b><b style="color:darkgreen">{{data.motherName}}</b></div>
+            <div class="col-md-4"><b>Date of Birth:</b><b style="color:darkgreen">{{moment-format data.dob  'DD/MM/YYYY'}} </b></div>
+            <div class="col-md-4"><b>Mobile Number:</b><b style="color:darkgreen">{{data.MobNo}}</b></div>
+         </div>
+         <div class="row">
+            <div class="col-md-6"><b>Admission card:</b><b style="color:darkgreen">{{data.TypeOform}}</b></div>
+         </div>
+      </div>
+      --}}
+   </div>
+   {{!-- &nbsp;&nbsp;<b>Seat Number:</b><b style="color:darkgreen">{{data.Seat_Number}}</b> --}}
+   {{/each}}
+   <button {{action "save"}}>Download PDF</button>
+</div>

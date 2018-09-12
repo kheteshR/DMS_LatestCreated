@@ -12,6 +12,9 @@ export default Route.extend({
     var JsonData={
         "userId":userId
     }
+    var PostData={
+        "userId":userId
+     }
     $.ajax({
         type: "POST",
         url: 'http://localhost:3007/GetAllGeneratedRequest',
@@ -77,5 +80,28 @@ export default Route.extend({
       
         }
     })
+   
+     $.ajax({
+        type: "POST",
+        url: 'http://localhost:3007/GetParticularUserDocuments',
+        data: JSON.stringify(PostData),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+            console.log("fetch document",response)
+            var ContentHash=response.result.output.ContentHash;
+            _this.controllerFor('DashBoard').set('ContentHash',ContentHash)
+            var TimeStamp=response.result.output.created_at;
+            _this.controllerFor('DashBoard').set('TimeStamp',TimeStamp)
+            var DoccumentType=response.result.output.Document;
+            _this.controllerFor('DashBoard').set('DoccumentType',DoccumentType)
+            var SeatNumber=response.result.output.SeatNumber;
+            _this.controllerFor('DashBoard').set('SeatNumber',SeatNumber)
+            var name=response.result.output.name;
+            _this.controllerFor('DashBoard').set('name',name)
+      
+        }  
+    })
+
     }
 });

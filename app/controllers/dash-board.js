@@ -5,6 +5,7 @@ export default Controller.extend({
     RequestForDuplication:false,
     ShowUploadDocument:false,
     DashBoardShow:true,
+    IsUserRepository:false,
     showAlertForDuplicate:false,
     ListDocument: ["SSC","HSC"],
     ListDocument1:["MARCH","JULY-OCTOBER"],
@@ -13,6 +14,7 @@ export default Controller.extend({
             this.set('ShowUploadDocument',true)
             this.set('DashBoardShow',false)
             this.set('RequestForDuplication',false)
+            this.set('IsUserRepository',false)
         },
         DuplicationDataSubmit:function(){
             var _this=this;
@@ -52,10 +54,13 @@ export default Controller.extend({
         })
         },
        GoToRepository:function(){
-        // this.set('ShowBlock',true)
-        this.transitionToRoute('UserRepository')
+        this.set('IsUserRepository',true)
+        this.set('RequestForDuplication',false)
+        this.set('ShowUploadDocument',false)
+        this.set('DashBoardShow',false)
        },
        ChangeForRequest:function(){
+        this.set('IsUserRepository',false)
         this.set('RequestForDuplication',true)
         this.set('ShowUploadDocument',false)
         this.set('DashBoardShow',false)

@@ -3,37 +3,32 @@
    <br>
    <h2><b><em>Audit Trail of Hall Ticket Process</em></b></h2>
    <h3><b>Application Id:</b>{{Id}}</h3>
-  
-    <table id="fresh-table" class="table">
-     
-            <thead>
-              <th>Process No.</th>
-              <th>Action Taken By: </th>
-            	<th>Status:</th>
-            	<th>Message:</th>
-            	<th>Time Stamp:</th>
-            	<th>Form Type:</th>
-            	{{!-- <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th> --}}
-            </thead>
-            <tbody>
-                {{#each AllData as |data index|}}
-                <tr>
-                	<td>{{add index 1}}</td>
-                  <td>{{data.Initiater}}</td>
-                   {{#if (eq data.status "Rejected")}}
-                	<td style="color:red">{{data.status}}</td>
-                  {{else}}
-                  <td style="color:darkgreen">{{data.status}}</td>
-                  {{/if}}
-                	<td>{{data.message}}</td>
-                	<td>{{data.created_At}}</td>
-                	<td>{{data.TypeOform}}</td>
-                </tr>
-                  {{/each}}
-            </tbody>
-            
-        </table>
-      
+   <table id="fresh-table" class="table">
+      <thead>
+         <th>Process No.</th>
+         <th>Action Taken By: </th>
+         <th>Status:</th>
+         <th>Message:</th>
+         <th>Time Stamp:</th>
+         <th>Form Type:</th>
+      </thead>
+      <tbody>
+         {{#each AllData as |data index|}}
+         <tr>
+            <td>{{add index 1}}</td>
+            <td>{{data.Initiater}}</td>
+            {{#if (eq data.status "Rejected")}}
+            <td style="color:red">{{data.status}}</td>
+            {{else}}
+            <td style="color:darkgreen">{{data.status}}</td>
+            {{/if}}
+            <td>{{data.message}}</td>
+            <td>{{data.created_At}}</td>
+            <td>{{data.TypeOform}}</td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
    {{#each AllData as |data index|}}
    <b>Process Step:{{add index 1}}</b>
    <div class=" list-group-item list-group-item-success" >
@@ -47,4 +42,3 @@
    <br>
 </div>
 <br>
-

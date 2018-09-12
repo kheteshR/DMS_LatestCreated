@@ -1,101 +1,99 @@
 {{partial 'navbar'}}
 <div class="sidebar">
-  <br>
-  <button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
-  <div class="row">
-    <div class="col-md-2" style="	padding-left:1cm;">
-   <img src="assets/icons8.png" class="icon">
-   </div>
-   <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;" {{action "toggle"}}>
-    Document Details</div>
-    </div>
-    </button>
-    <br>
-    <button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
-    <div class="row">
-    <div class="col-md-2" style="	padding-left:1cm;">
-   <img src="assets/icon1.png" class="icon">
-   </div>
-    <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;">
-   <div  style="background-color:" {{action "toggle1"}}>Documents host </div>
-   </div>
+   <br>
+   <button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
+      <div class="row">
+         <div class="col-md-2" style="	padding-left:1cm;">
+            <img src="assets/icons8.png" class="icon">
+         </div>
+         <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;" {{action "toggle"}}>
+         Document Details
+      </div>
 </div>
 </button>
-   <br>
-   <hr>
+<br>
+<button type="button" class="btn btn-primary Rectangle-2-Copy-7" style="border-color:;">
+   <div class="row">
+      <div class="col-md-2" style="	padding-left:1cm;">
+         <img src="assets/icon1.png" class="icon">
+      </div>
+      <div class="col-md-8" style="color:white;text-align:center;padding-top:3%;">
+         <div  style="background-color:" {{action "toggle1"}}>Documents host 
+      </div>
+   </div>
+   </div>
+</button>
+<br>
+<hr>
 </div>
 <div class="main">
    <br>
    {{#if ChangePage}}
-      <div class="row">
-      <div class="col-md-6 col-md-offset-6">
    <div class="row">
-      <h1 style="text-align:center;"><strong> Upload Documents</strong></h1>
-         <hr style="background-color:gray">
+      <div class="col-md-6 col-md-offset-6">
+         <div class="row">
+            <h1 style="text-align:center;"><strong> Upload Documents</strong></h1>
+            <hr style="background-color:gray">
+         </div>
+         <div class="row" style="background-color:light-gray">
+            <h3>Please select your document before upload</h3>
+            <div  style="color:blue"><b>Select category from here</b></div>
+            <div class="">{{select-component listitem=ListDocument selecteditemlist=propertyType}}</div>
+            <br> 
+            <label class="formlab" style="color:black;" for="usr">Name of Document Owner</label>
+            {{input type="text"  class="form-control" value=name placeholder="Enter Name"}}
+            <br>
+            {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+            <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">&nbsp;Click Here To Upload Documents</a>
+            {{/pl-uploader}}
+         </div>
+      </div>
    </div>
-<div class="row" style="background-color:light-gray">
-
-<h3>Please select your document before upload</h3>
-<div  style="color:blue"><b>Select category from here</b></div>
-
-<div class="">{{select-component listitem=ListDocument selecteditemlist=propertyType}}</div>
-<br> 
-<label class="formlab" style="color:black;" for="usr">Name of Document Owner</label>
-{{input type="text"  class="form-control" value=name placeholder="Enter Name"}}
-<br>
-   {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
-   <a id="upload_file" style="font-size:18px"><img src="assets/images2.png" alt="Smiley face" width="42" height="42">&nbsp;Click Here To Upload Documents</a>
-   {{/pl-uploader}}
-</div>
-</div>
-</div>
-{{else}}
-<h2>All Uploaded Document</h2>
-{{#each data as |personal index|}}
-
-<div class="row">
- <div class="table-responsive">          
-  <table class="">
-    <thead>
-      <tr>
-        <th>#</th>
-        {{!-- <th>Candidate Name</th> --}}
-        <th>Document Type</th>
-        <th>Status</th>
-        <th>Date & Time</th>
-        <th>Content Hash</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{add index 1}}</td>
-        {{!-- <td>{{personal.candiName}}</td> --}}
-        <td>{{personal.DocumentType}}</td>
-        <td style="color:forestgreen">{{personal.status}}</td>
-        <td>{{personal.created_at}}</td>
-        <td style="color:green">{{personal.filesHash.0.hash}}</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</div>
-{{/each}}
-
-{{/if}}
-<br>
-
-{{#if isShowingModal}}
-<div class="container">
-  <div class="alert alert-success alert-dismissible">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> You should Hosted File successfully.
-    <p>your transaction hash</p><strong>{{txHash}}</strong>
-  </div>
-</div>
-{{/if}}
+   {{else}}
+   <h2>All Uploaded Document</h2>
+   {{#each data as |personal index|}}
+   <div class="row">
+      <div class="table-responsive">
+         <table class="">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  {{!-- 
+                  <th>Candidate Name</th>
+                  --}}
+                  <th>Document Type</th>
+                  <th>Status</th>
+                  <th>Date & Time</th>
+                  <th>Content Hash</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>{{add index 1}}</td>
+                  {{!-- 
+                  <td>{{personal.candiName}}</td>
+                  --}}
+                  <td>{{personal.DocumentType}}</td>
+                  <td style="color:forestgreen">{{personal.status}}</td>
+                  <td>{{personal.created_at}}</td>
+                  <td style="color:green">{{personal.filesHash.0.hash}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+   {{/each}}
+   {{/if}}
+   <br>
+   {{#if isShowingModal}}
+   <div class="container">
+      <div class="alert alert-success alert-dismissible">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Success!</strong> You should Hosted File successfully.
+         <p>your transaction hash</p>
+         <strong>{{txHash}}</strong>
+      </div>
+   </div>
+   {{/if}}
 </div>
 <br>
-
-
-
- 
